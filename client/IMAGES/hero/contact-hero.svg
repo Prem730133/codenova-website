@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1a" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.7" opacity="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bgGrad)" />
+  <rect width="100%" height="100%" fill="url(#grid)" />
+  
+  <!-- Glowing tech lines -->
+  <path d="M-100,250 Q300,100 600,300 T1300,250" fill="none" stroke="url(#accentGrad)" stroke-width="4" opacity="0.3" />
+  <path d="M-100,200 Q200,350 700,200 T1300,300" fill="none" stroke="url(#accentGrad)" stroke-width="2" opacity="0.2" />
+
+  <!-- Abstract network dots -->
+  <circle cx="300" cy="150" r="4" fill="#06b6d4" opacity="0.6"/>
+  <circle cx="500" cy="350" r="5" fill="#3b82f6" opacity="0.7"/>
+  <circle cx="800" cy="200" r="3" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="950" cy="380" r="6" fill="#06b6d4" opacity="0.8"/>
+  
+  <line x1="300" y1="150" x2="500" y2="350" stroke="#1e293b" stroke-width="1" opacity="0.4"/>
+  <line x1="800" y1="200" x2="950" y2="380" stroke="#1e293b" stroke-width="1" opacity="0.4"/>
+
+  <!-- Centered Hero Text -->
+  <g transform="translate(600, 250)">
+    <text text-anchor="middle" font-family="'Poppins', sans-serif" font-size="56" font-weight="900" fill="#ffffff" letter-spacing="1">
+      GET IN TOUCH
+    </text>
+    <text y="50" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="20" font-weight="400" fill="#94a3b8" letter-spacing="0.5">
+      CodeNova Technologies | Enterprise Digital Innovation
+    </text>
+    <rect x="-100" y="80" width="200" height="4" rx="2" fill="url(#accentGrad)" />
+  </g>
+</svg>

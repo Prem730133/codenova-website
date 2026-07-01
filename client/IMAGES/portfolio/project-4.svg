@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="uxBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="cursorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#uxBg)" rx="12" />
+  
+  <!-- Grid Paper Pattern -->
+  <path d="M0,50 L800,50 M0,100 L800,100 M0,150 L800,150 M0,200 L800,200 M0,250 L800,250 M0,300 L800,300 M0,350 L800,350 M0,400 L800,400 M0,450 L800,450 M0,500 L800,500" stroke="#1e293b" stroke-width="0.5" opacity="0.5" />
+  <path d="M100,0 L100,600 M200,0 L200,600 M300,0 L300,600 M400,0 L400,600 M500,0 L500,600 M600,0 L600,600 M700,0 L700,600" stroke="#1e293b" stroke-width="0.5" opacity="0.5" />
+
+  <!-- Wireframe Mobile Device Frame -->
+  <g transform="translate(150, 100)">
+    <rect width="200" height="400" rx="20" fill="none" stroke="#475569" stroke-width="2" />
+    <line x1="20" y1="50" x2="180" y2="50" stroke="#334155" stroke-width="2" />
+    <circle cx="100" cy="25" r="5" fill="#334155" />
+    <!-- Mock UI Elements inside wireframe -->
+    <rect x="20" y="70" width="160" height="100" rx="8" fill="none" stroke="#ec4899" stroke-dasharray="4 4" stroke-width="2" />
+    <circle cx="100" cy="120" r="15" fill="none" stroke="#ec4899" stroke-width="2" />
+    
+    <rect x="20" y="190" width="160" height="20" rx="4" fill="none" stroke="#334155" stroke-width="1.5" />
+    <rect x="20" y="220" width="160" height="80" rx="4" fill="none" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Design tools selection handlers -->
+    <rect x="-4" y="-4" width="8" height="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" />
+    <rect x="196" y="-4" width="8" height="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" />
+    <rect x="-4" y="396" width="8" height="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" />
+    <rect x="196" y="396" width="8" height="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" />
+  </g>
+
+  <!-- Vector Cursor Graphic -->
+  <g transform="translate(320, 240)">
+    <path d="M0,0 L10,25 L5,17 L-5,22 Z" fill="url(#cursorGrad)" stroke="#ffffff" stroke-width="1.5" />
+    <text x="15" y="10" font-family="monospace" font-size="11" font-weight="700" fill="#ec4899">UX designer</text>
+  </g>
+  
+  <text x="560" y="240" font-family="'Poppins', sans-serif" font-size="24" font-weight="800" fill="#ffffff">Trade Terminal Interface</text>
+  <text x="560" y="265" font-family="'Poppins', sans-serif" font-size="13" font-weight="600" fill="#ec4899">PIXEL PERFECT LAYOUTS</text>
+</svg>

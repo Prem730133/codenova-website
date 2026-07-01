@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)" rx="12" />
+  
+  <!-- Tech Dashboard Layout -->
+  <!-- Top Bar -->
+  <rect x="20" y="20" width="760" height="50" rx="8" fill="url(#cardGrad)" stroke="#334155" stroke-width="1" />
+  <circle cx="45" cy="45" r="6" fill="#ef4444" />
+  <circle cx="65" cy="45" r="6" fill="#eab308" />
+  <circle cx="85" cy="45" r="6" fill="#22c55e" />
+  <text x="110" y="51" font-family="'Poppins', sans-serif" font-size="14" font-weight="600" fill="#94a3b8">Company DNA Console</text>
+
+  <!-- Left Navigation Mock -->
+  <rect x="20" y="90" width="180" height="490" rx="8" fill="url(#cardGrad)" stroke="#334155" stroke-width="1" />
+  <rect x="35" y="115" width="150" height="30" rx="6" fill="#334155" />
+  <circle cx="50" cy="130" r="5" fill="#3b82f6" />
+  <rect x="65" y="126" width="90" height="8" rx="4" fill="#ffffff" />
+  
+  <rect x="35" y="160" width="150" height="30" rx="6" fill="none" stroke="#1e293b" />
+  <circle cx="50" cy="175" r="5" fill="#475569" />
+  <rect x="65" y="171" width="90" height="8" rx="4" fill="#475569" />
+
+  <rect x="35" y="205" width="150" height="30" rx="6" fill="none" />
+  <circle cx="50" cy="220" r="5" fill="#475569" />
+  <rect x="65" y="216" width="90" height="8" rx="4" fill="#475569" />
+
+  <!-- Main Content Area -->
+  <rect x="220" y="90" width="560" height="490" rx="8" fill="url(#cardGrad)" stroke="#334155" stroke-width="1" />
+  
+  <!-- Interactive Chart Graphic -->
+  <rect x="240" y="110" width="520" height="240" rx="8" fill="#020617" stroke="#1e293b" />
+  <path d="M250,300 L300,240 L350,260 L400,180 L450,210 L500,140 L550,190 L600,130 L650,160 L700,110 Q730,120 750,150" fill="none" stroke="#06b6d4" stroke-width="3" />
+  <path d="M250,300 L300,240 L350,260 L400,180 L450,210 L500,140 L550,190 L600,130 L650,160 L700,110 L750,150 L750,320 L250,320 Z" fill="none" opacity="0.15" />
+  
+  <line x1="250" y1="320" x2="750" y2="320" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="120" x2="750" y2="120" stroke="#1e293b" stroke-width="0.5" />
+  <line x1="250" y1="170" x2="750" y2="170" stroke="#1e293b" stroke-width="0.5" />
+  <line x1="250" y1="220" x2="750" y2="220" stroke="#1e293b" stroke-width="0.5" />
+  <line x1="250" y1="270" x2="750" y2="270" stroke="#1e293b" stroke-width="0.5" />
+
+  <!-- Data Cards -->
+  <rect x="240" y="375" width="160" height="180" rx="8" fill="#0b1320" stroke="#1e293b" />
+  <text x="255" y="405" font-family="'Poppins', sans-serif" font-size="12" font-weight="600" fill="#64748b">PERFORMANCE</text>
+  <text x="255" y="445" font-family="'Poppins', sans-serif" font-size="28" font-weight="800" fill="#22c55e">99.98%</text>
+  <rect x="255" y="465" width="130" height="6" rx="3" fill="#1e293b" />
+  <rect x="255" y="465" width="125" height="6" rx="3" fill="#22c55e" />
+  
+  <rect x="420" y="375" width="160" height="180" rx="8" fill="#0b1320" stroke="#1e293b" />
+  <text x="435" y="405" font-family="'Poppins', sans-serif" font-size="12" font-weight="600" fill="#64748b">LOAD TIME</text>
+  <text x="435" y="445" font-family="'Poppins', sans-serif" font-size="28" font-weight="800" fill="#3b82f6">0.82s</text>
+  <rect x="435" y="465" width="130" height="6" rx="3" fill="#1e293b" />
+  <rect x="435" y="465" width="110" height="6" rx="3" fill="#3b82f6" />
+
+  <rect x="600" y="375" width="160" height="180" rx="8" fill="#0b1320" stroke="#1e293b" />
+  <text x="615" y="405" font-family="'Poppins', sans-serif" font-size="12" font-weight="600" fill="#64748b">RELIABILITY</text>
+  <text x="615" y="445" font-family="'Poppins', sans-serif" font-size="28" font-weight="800" fill="#8b5cf6">99.99%</text>
+  <rect x="615" y="465" width="130" height="6" rx="3" fill="#1e293b" />
+  <rect x="615" y="465" width="128" height="6" rx="3" fill="#8b5cf6" />
+</svg>

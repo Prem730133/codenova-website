@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="glowServer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#cloudGrad)" rx="12" />
+  <circle cx="400" cy="300" r="250" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.3" />
+  
+  <!-- Cloud Shape Graphic -->
+  <path d="M300,200 C270,200 250,220 250,250 C250,255 251,260 253,264 C230,270 210,290 210,320 C210,350 235,370 270,370 L530,370 C565,370 590,350 590,320 C590,295 575,275 555,266 C558,260 560,255 560,250 C560,210 520,180 470,180 C440,180 410,195 395,215 C380,195 350,180 320,180 C313,180 306,181 300,182" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 6" opacity="0.3" />
+  
+  <!-- Server Rack 1 -->
+  <g transform="translate(300, 220)">
+    <rect width="200" height="40" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-width="2" />
+    <circle cx="20" cy="20" r="5" fill="#22c55e" />
+    <circle cx="35" cy="20" r="5" fill="#22c55e" />
+    <line x1="60" y1="20" x2="160" y2="20" stroke="#334155" stroke-width="6" stroke-linecap="round" />
+    <line x1="60" y1="20" x2="130" y2="20" stroke="url(#glowServer)" stroke-width="6" stroke-linecap="round" />
+  </g>
+
+  <!-- Server Rack 2 -->
+  <g transform="translate(300, 275)">
+    <rect width="200" height="40" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-width="2" />
+    <circle cx="20" cy="20" r="5" fill="#22c55e" />
+    <circle cx="35" cy="20" r="5" fill="#ef4444" />
+    <line x1="60" y1="20" x2="160" y2="20" stroke="#334155" stroke-width="6" stroke-linecap="round" />
+    <line x1="60" y1="20" x2="150" y2="20" stroke="url(#glowServer)" stroke-width="6" stroke-linecap="round" />
+  </g>
+
+  <!-- Server Rack 3 -->
+  <g transform="translate(300, 330)">
+    <rect width="200" height="40" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-width="2" />
+    <circle cx="20" cy="20" r="5" fill="#22c55e" />
+    <circle cx="35" cy="20" r="5" fill="#22c55e" />
+    <line x1="60" y1="20" x2="160" y2="20" stroke="#334155" stroke-width="6" stroke-linecap="round" />
+    <line x1="60" y1="20" x2="110" y2="20" stroke="url(#glowServer)" stroke-width="6" stroke-linecap="round" />
+  </g>
+  
+  <text x="400" y="420" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="20" font-weight="800" fill="#ffffff">Core Tech Stack Integrations</text>
+  <text x="400" y="445" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="13" font-weight="600" fill="#38bdf8">CLOUD ENVIRONMENT READY</text>
+</svg>

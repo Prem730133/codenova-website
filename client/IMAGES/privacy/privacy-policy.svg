@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="shieldBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b14" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#7f1d1d" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#shieldBg)" rx="12" />
+  
+  <!-- Glowing Hex Grid background lines -->
+  <path d="M100,50 L200,50 L250,136 L200,222 L100,222 L50,136 Z" fill="none" stroke="#ef4444" stroke-width="0.5" opacity="0.1" />
+  <path d="M550,300 L650,300 L700,386 L650,472 L550,472 L50,386 Z" fill="none" stroke="#ef4444" stroke-width="0.5" opacity="0.05" />
+
+  <!-- Shield Shield Vector -->
+  <g transform="translate(300, 100)">
+    <path d="M100,30 C120,30 180,10 180,10 L180,130 C180,220 100,270 100,270 C100,270 20,220 20,130 L20,10 C20,10 80,30 100,30 Z" fill="none" stroke="url(#shieldGrad)" stroke-width="8" stroke-linejoin="round" />
+    <!-- Lock Shape inside shield -->
+    <rect x="75" y="120" width="50" height="40" rx="6" fill="#ef4444" />
+    <path d="M85,120 L85,95 C85,75 115,75 115,95 L115,120" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" />
+    <circle cx="100" cy="140" r="4" fill="#ffffff" />
+    <path d="M100,144 L100,152" stroke="#ffffff" stroke-width="2" />
+  </g>
+  
+  <text x="400" y="440" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="22" font-weight="800" fill="#ffffff">Security and Data Privacy Standards</text>
+  <text x="400" y="470" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="13" font-weight="600" fill="#ef4444">SECURE DATA PROTOCOLS</text>
+</svg>

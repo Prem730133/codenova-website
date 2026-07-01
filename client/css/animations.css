@@ -1,0 +1,4067 @@
+/*==================================================
+  CodeNova Technologies
+  animations.css
+  Fade Animations + Slide Animations
+==================================================*/
+
+/*=========================================
+  Fade Animations
+=========================================*/
+
+@keyframes fadeIn{
+
+    0%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:1;
+    }
+
+}
+
+@keyframes fadeOut{
+
+    0%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+    }
+
+}
+
+@keyframes fadeInUp{
+
+    0%{
+        opacity:0;
+        transform:translateY(60px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeInDown{
+
+    0%{
+        opacity:0;
+        transform:translateY(-60px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeInLeft{
+
+    0%{
+        opacity:0;
+        transform:translateX(-60px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+@keyframes fadeInRight{
+
+    0%{
+        opacity:0;
+        transform:translateX(60px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+.fade-in{
+    animation:fadeIn .8s ease forwards;
+}
+
+.fade-out{
+    animation:fadeOut .8s ease forwards;
+}
+
+.fade-up{
+    animation:fadeInUp .9s ease forwards;
+}
+
+.fade-down{
+    animation:fadeInDown .9s ease forwards;
+}
+
+.fade-left{
+    animation:fadeInLeft .9s ease forwards;
+}
+
+.fade-right{
+    animation:fadeInRight .9s ease forwards;
+}
+
+/*=========================================
+  Slide Animations
+=========================================*/
+
+@keyframes slideUp{
+
+    0%{
+        transform:translateY(100%);
+        opacity:0;
+    }
+
+    100%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+@keyframes slideDown{
+
+    0%{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+
+    100%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+@keyframes slideLeft{
+
+    0%{
+        transform:translateX(-100%);
+        opacity:0;
+    }
+
+    100%{
+        transform:translateX(0);
+        opacity:1;
+    }
+
+}
+
+@keyframes slideRight{
+
+    0%{
+        transform:translateX(100%);
+        opacity:0;
+    }
+
+    100%{
+        transform:translateX(0);
+        opacity:1;
+    }
+
+}
+
+.slide-up{
+    animation:slideUp .8s ease-out forwards;
+}
+
+.slide-down{
+    animation:slideDown .8s ease-out forwards;
+}
+
+.slide-left{
+    animation:slideLeft .8s ease-out forwards;
+}
+
+.slide-right{
+    animation:slideRight .8s ease-out forwards;
+}
+
+.slide-fast{
+    animation-duration:.5s;
+}
+
+.slide-slow{
+    animation-duration:1.5s;
+}
+
+.slide-delay-1{
+    animation-delay:.2s;
+}
+
+.slide-delay-2{
+    animation-delay:.4s;
+}
+
+.slide-delay-3{
+    animation-delay:.6s;
+}
+
+.animate-on-load{
+    opacity:0;
+    animation-fill-mode:forwards;
+}
+/*==================================================
+  Zoom Animations + Rotate Animations
+==================================================*/
+
+/*=========================================
+  Zoom Animations
+=========================================*/
+
+@keyframes zoomIn{
+
+    0%{
+        opacity:0;
+        transform:scale(.3);
+    }
+
+    50%{
+        opacity:.8;
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+@keyframes zoomOut{
+
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(.3);
+    }
+
+}
+
+@keyframes zoomInUp{
+
+    0%{
+        opacity:0;
+        transform:translateY(80px) scale(.6);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+@keyframes zoomInDown{
+
+    0%{
+        opacity:0;
+        transform:translateY(-80px) scale(.6);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+.zoom-in{
+    animation:zoomIn .8s ease forwards;
+}
+
+.zoom-out{
+    animation:zoomOut .8s ease forwards;
+}
+
+.zoom-up{
+    animation:zoomInUp .9s ease forwards;
+}
+
+.zoom-down{
+    animation:zoomInDown .9s ease forwards;
+}
+
+.zoom-fast{
+    animation-duration:.5s;
+}
+
+.zoom-normal{
+    animation-duration:.8s;
+}
+
+.zoom-slow{
+    animation-duration:1.4s;
+}
+
+/*=========================================
+  Rotate Animations
+=========================================*/
+
+@keyframes rotateIn{
+
+    0%{
+        opacity:0;
+        transform:rotate(-180deg) scale(.5);
+    }
+
+    100%{
+        opacity:1;
+        transform:rotate(0deg) scale(1);
+    }
+
+}
+
+@keyframes rotateOut{
+
+    0%{
+        opacity:1;
+        transform:rotate(0deg);
+    }
+
+    100%{
+        opacity:0;
+        transform:rotate(180deg);
+    }
+
+}
+
+@keyframes spinClockwise{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes spinAntiClockwise{
+
+    from{
+        transform:rotate(360deg);
+    }
+
+    to{
+        transform:rotate(0deg);
+    }
+
+}
+
+.rotate-in{
+    animation:rotateIn .9s ease forwards;
+}
+
+.rotate-out{
+    animation:rotateOut .9s ease forwards;
+}
+
+.rotate{
+    animation:spinClockwise 8s linear infinite;
+}
+
+.rotate-reverse{
+    animation:spinAntiClockwise 8s linear infinite;
+}
+
+.rotate-fast{
+    animation-duration:2s;
+}
+
+.rotate-medium{
+    animation-duration:5s;
+}
+
+.rotate-slow{
+    animation-duration:10s;
+}
+
+.rotate-hover:hover{
+    animation:spinClockwise 1s linear;
+}
+
+.rotate-hover-reverse:hover{
+    animation:spinAntiClockwise 1s linear;
+}
+
+.rotate-scale:hover{
+    transform:rotate(8deg) scale(1.05);
+    transition:.4s ease;
+}
+
+.icon-spin{
+    animation:spinClockwise 3s linear infinite;
+}
+
+.logo-spin{
+    animation:spinClockwise 12s linear infinite;
+}
+/*==================================================
+  Bounce Animations + Animation Utility Classes
+==================================================*/
+
+/*=========================================
+  Bounce Animations
+=========================================*/
+
+@keyframes bounce{
+
+    0%,20%,50%,80%,100%{
+        transform:translateY(0);
+    }
+
+    40%{
+        transform:translateY(-25px);
+    }
+
+    60%{
+        transform:translateY(-12px);
+    }
+
+}
+
+@keyframes bounceIn{
+
+    0%{
+        opacity:0;
+        transform:scale(.3);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.05);
+    }
+
+    70%{
+        transform:scale(.95);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+@keyframes bounceOut{
+
+    20%{
+        transform:scale(.9);
+    }
+
+    50%,55%{
+        opacity:1;
+        transform:scale(1.1);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(.3);
+    }
+
+}
+
+@keyframes bounceLeft{
+
+    0%{
+        opacity:0;
+        transform:translateX(-120px);
+    }
+
+    60%{
+        opacity:1;
+        transform:translateX(20px);
+    }
+
+    80%{
+        transform:translateX(-10px);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+
+}
+
+@keyframes bounceRight{
+
+    0%{
+        opacity:0;
+        transform:translateX(120px);
+    }
+
+    60%{
+        opacity:1;
+        transform:translateX(-20px);
+    }
+
+    80%{
+        transform:translateX(10px);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+
+}
+
+.bounce{
+    animation:bounce 2s infinite;
+}
+
+.bounce-in{
+    animation:bounceIn .9s ease forwards;
+}
+
+.bounce-out{
+    animation:bounceOut .9s ease forwards;
+}
+
+.bounce-left{
+    animation:bounceLeft .9s ease forwards;
+}
+
+.bounce-right{
+    animation:bounceRight .9s ease forwards;
+}
+
+/*=========================================
+  Animation Utility Classes
+=========================================*/
+
+.animate{
+    animation-fill-mode:both;
+}
+
+.animate-fast{
+    animation-duration:.5s;
+}
+
+.animate-normal{
+    animation-duration:.8s;
+}
+
+.animate-slow{
+    animation-duration:1.5s;
+}
+
+.animate-delay-1{
+    animation-delay:.2s;
+}
+
+.animate-delay-2{
+    animation-delay:.4s;
+}
+
+.animate-delay-3{
+    animation-delay:.6s;
+}
+
+.animate-delay-4{
+    animation-delay:.8s;
+}
+
+.animate-delay-5{
+    animation-delay:1s;
+}
+
+.animate-infinite{
+    animation-iteration-count:infinite;
+}
+
+.animate-once{
+    animation-iteration-count:1;
+}
+
+.animate-linear{
+    animation-timing-function:linear;
+}
+
+.animate-ease{
+    animation-timing-function:ease;
+}
+
+.animate-ease-in{
+    animation-timing-function:ease-in;
+}
+
+.animate-ease-out{
+    animation-timing-function:ease-out;
+}
+
+.animate-ease-in-out{
+    animation-timing-function:ease-in-out;
+}
+
+.paused{
+    animation-play-state:paused;
+}
+
+.running{
+    animation-play-state:running;
+}
+
+.hover-grow:hover{
+    transform:scale(1.08);
+    transition:.35s ease;
+}
+
+.hover-shrink:hover{
+    transform:scale(.95);
+    transition:.35s ease;
+}
+
+.hover-lift:hover{
+    transform:translateY(-8px);
+    transition:.35s ease;
+}
+
+.hover-rotate:hover{
+    transform:rotate(6deg);
+    transition:.35s ease;
+}
+
+.hover-fade:hover{
+    opacity:.8;
+    transition:.35s ease;
+}
+
+.hover-shadow:hover{
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+    transition:.35s ease;
+}
+
+.pointer{
+    cursor:pointer;
+}
+
+.no-animation{
+    animation:none !important;
+}
+/*==================================================
+  Hero Animations + Navbar Animations
+==================================================*/
+
+/*=========================================
+  Hero Animations
+=========================================*/
+
+@keyframes heroFadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(80px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes heroImageFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes heroGlow{
+
+    0%{
+        box-shadow:0 0 0 rgba(13,110,253,.15);
+    }
+
+    50%{
+        box-shadow:0 0 35px rgba(13,110,253,.45);
+    }
+
+    100%{
+        box-shadow:0 0 0 rgba(13,110,253,.15);
+    }
+
+}
+
+.hero-content{
+    animation:heroFadeIn 1s ease-out forwards;
+}
+
+.hero-title{
+    animation:fadeInDown 1s ease forwards;
+}
+
+.hero-description{
+    animation:fadeInUp 1.2s ease forwards;
+}
+
+.hero-buttons{
+    animation:fadeInUp 1.4s ease forwards;
+}
+
+.hero-image{
+    animation:fadeInRight 1.3s ease forwards;
+}
+
+.hero-image img{
+    animation:heroImageFloat 5s ease-in-out infinite;
+}
+
+.hero-badge{
+    animation:bounceIn .9s ease;
+}
+
+.hero-glow{
+    animation:heroGlow 3s infinite;
+}
+
+.hero-scroll{
+    animation:bounce 2s infinite;
+}
+
+.hero-shape{
+    animation:rotate 20s linear infinite;
+}
+
+.hero-wave{
+    animation:fadeIn 1.5s ease;
+}
+
+/*=========================================
+  Navbar Animations
+=========================================*/
+
+@keyframes navbarSlideDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-100%);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes navLinkFade{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+header,
+.navbar{
+    animation:navbarSlideDown .8s ease-out;
+}
+
+.navbar-brand{
+    animation:fadeInLeft .8s ease;
+}
+
+.navbar-nav .nav-item{
+    animation:navLinkFade .6s ease forwards;
+}
+
+.navbar-nav .nav-item:nth-child(1){animation-delay:.1s;}
+.navbar-nav .nav-item:nth-child(2){animation-delay:.2s;}
+.navbar-nav .nav-item:nth-child(3){animation-delay:.3s;}
+.navbar-nav .nav-item:nth-child(4){animation-delay:.4s;}
+.navbar-nav .nav-item:nth-child(5){animation-delay:.5s;}
+.navbar-nav .nav-item:nth-child(6){animation-delay:.6s;}
+
+.navbar-nav .nav-link{
+    transition:all .35s ease;
+}
+
+.navbar-nav .nav-link:hover{
+    transform:translateY(-3px);
+}
+
+.navbar-brand img:hover{
+    animation:rotateIn .8s ease;
+}
+
+.sticky-header{
+    animation:navbarSlideDown .5s ease;
+}
+
+.navbar-toggler{
+    transition:all .35s ease;
+}
+
+.navbar-toggler:hover{
+    transform:rotate(90deg);
+}
+
+.dropdown-menu{
+    animation:fadeInDown .35s ease;
+}
+
+.nav-search:hover,
+.theme-toggle:hover{
+    animation:pulse 1s infinite;
+}
+/*==================================================
+  Button Animations + Card Hover Animations
+==================================================*/
+
+/*=========================================
+  Button Animations
+=========================================*/
+
+@keyframes buttonPulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+@keyframes buttonGlow{
+
+    0%{
+        box-shadow:0 0 0 rgba(13,110,253,.2);
+    }
+
+    50%{
+        box-shadow:0 0 30px rgba(13,110,253,.5);
+    }
+
+    100%{
+        box-shadow:0 0 0 rgba(13,110,253,.2);
+    }
+
+}
+
+@keyframes rippleEffect{
+
+    0%{
+        transform:scale(0);
+        opacity:.7;
+    }
+
+    100%{
+        transform:scale(3);
+        opacity:0;
+    }
+
+}
+
+.btn{
+    position:relative;
+    overflow:hidden;
+    transition:all .35s ease;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+.btn-warning:hover,
+.btn-danger:hover{
+    animation:buttonGlow 1.2s infinite;
+}
+
+.btn-pulse:hover{
+    animation:buttonPulse .8s infinite;
+}
+
+.btn-scale:hover{
+    transform:scale(1.05);
+}
+
+.btn-slide:hover{
+    transform:translateX(5px);
+}
+
+.btn i{
+    transition:transform .35s ease;
+}
+
+.btn:hover i{
+    transform:translateX(5px);
+}
+
+.btn-ripple::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:rgba(255,255,255,.45);
+    transform:scale(0);
+    pointer-events:none;
+}
+
+.btn-ripple:hover::after{
+    animation:rippleEffect .8s ease-out;
+}
+
+/*=========================================
+  Card Hover Animations
+=========================================*/
+
+.card,
+.service-card,
+.portfolio-card,
+.team-card,
+.blog-card,
+.pricing-card,
+.career-card,
+.tech-card,
+.office-card,
+.testimonial-card{
+    transition:all .4s ease;
+}
+
+.card:hover,
+.service-card:hover,
+.portfolio-card:hover,
+.team-card:hover,
+.blog-card:hover,
+.pricing-card:hover,
+.career-card:hover,
+.tech-card:hover,
+.office-card:hover,
+.testimonial-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+.card:hover .card-icon,
+.service-card:hover .service-icon,
+.tech-card:hover i,
+.office-card:hover .office-icon{
+    animation:bounce 1s;
+}
+
+.team-card:hover img,
+.blog-card:hover img,
+.portfolio-card:hover img{
+    transform:scale(1.08);
+}
+
+.pricing-card.featured:hover{
+    transform:translateY(-12px) scale(1.02);
+}
+
+.testimonial-card:hover .quote-icon{
+    animation:rotateIn .8s ease;
+}
+
+.career-card:hover .career-icon{
+    animation:pulse 1s infinite;
+}
+
+.card-hover-glow:hover{
+    box-shadow:0 0 30px rgba(13,110,253,.35);
+}
+
+.card-hover-rotate:hover{
+    transform:rotate(2deg) translateY(-8px);
+}
+
+.card-hover-scale:hover{
+    transform:scale(1.03);
+}
+
+.card-hover-border:hover{
+    border-color:var(--primary);
+}
+
+.card-hover-shadow{
+    transition:all .4s ease;
+}
+
+.card-hover-shadow:hover{
+    box-shadow:0 20px 45px rgba(0,0,0,.22);
+}
+/*==================================================
+  Image Hover Effects + Icon Animations
+==================================================*/
+
+/*=========================================
+  Image Hover Effects
+=========================================*/
+
+@keyframes imageZoom{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.08);
+    }
+
+}
+
+@keyframes imageFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes imageGlow{
+
+    0%{
+        box-shadow:0 0 0 rgba(13,110,253,.2);
+    }
+
+    50%{
+        box-shadow:0 0 35px rgba(13,110,253,.45);
+    }
+
+    100%{
+        box-shadow:0 0 0 rgba(13,110,253,.2);
+    }
+
+}
+
+.image-hover{
+    overflow:hidden;
+    position:relative;
+}
+
+.image-hover img{
+    transition:all .5s ease;
+}
+
+.image-hover:hover img{
+    transform:scale(1.08);
+}
+
+.image-float{
+    animation:imageFloat 5s ease-in-out infinite;
+}
+
+.image-glow:hover img{
+    animation:imageGlow 1.5s infinite;
+}
+
+.image-zoom:hover img{
+    animation:imageZoom .5s forwards;
+}
+
+.image-rotate:hover img{
+    transform:scale(1.05) rotate(3deg);
+}
+
+.image-grayscale img{
+    filter:grayscale(100%);
+    transition:.4s ease;
+}
+
+.image-grayscale:hover img{
+    filter:grayscale(0);
+}
+
+.image-blur:hover img{
+    filter:blur(2px);
+}
+
+.image-bright:hover img{
+    filter:brightness(1.15);
+}
+
+.image-shadow:hover img{
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.image-rounded img{
+    transition:border-radius .4s ease;
+}
+
+.image-rounded:hover img{
+    border-radius:30px;
+}
+
+/*=========================================
+  Icon Animations
+=========================================*/
+
+@keyframes iconPulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.25);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+@keyframes iconShake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    20%{
+        transform:translateX(-4px);
+    }
+
+    40%{
+        transform:translateX(4px);
+    }
+
+    60%{
+        transform:translateX(-4px);
+    }
+
+    80%{
+        transform:translateX(4px);
+    }
+
+}
+
+.icon-hover{
+    transition:all .35s ease;
+}
+
+.icon-hover:hover{
+    color:var(--primary);
+    transform:scale(1.15);
+}
+
+.icon-pulse:hover{
+    animation:iconPulse .8s infinite;
+}
+
+.icon-spin:hover{
+    animation:spinClockwise 1s linear;
+}
+
+.icon-spin-reverse:hover{
+    animation:spinAntiClockwise 1s linear;
+}
+
+.icon-bounce:hover{
+    animation:bounce .8s;
+}
+
+.icon-shake:hover{
+    animation:iconShake .6s;
+}
+
+.icon-float{
+    animation:imageFloat 4s ease-in-out infinite;
+}
+
+.icon-glow:hover{
+    filter:drop-shadow(0 0 12px rgba(13,110,253,.6));
+}
+
+.social-icons a:hover i{
+    animation:iconPulse .7s ease;
+}
+
+.service-icon:hover i,
+.office-icon:hover i,
+.card-icon:hover i,
+.tech-card:hover i{
+    animation:iconBounce .8s ease;
+}
+
+.hero-icon{
+    animation:iconPulse 2s infinite;
+}
+
+.feature-icon{
+    transition:all .35s ease;
+}
+
+.feature-icon:hover{
+    transform:rotate(15deg) scale(1.2);
+    color:var(--primary);
+}
+
+.nav-icon:hover{
+    animation:iconShake .5s ease;
+}
+
+.footer-icon:hover{
+    animation:spinClockwise .8s linear;
+}
+/*==================================================
+  Loading Screen + Spinner
+==================================================*/
+
+/*=========================================
+  Loading Screen
+=========================================*/
+
+#preloader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    z-index:99999;
+    transition:opacity .6s ease,
+               visibility .6s ease;
+}
+
+#preloader.loaded{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-logo{
+    width:90px;
+    height:90px;
+    margin-bottom:25px;
+    animation:loaderPulse 1.8s ease-in-out infinite;
+}
+
+.loader-text{
+    font-size:1.1rem;
+    font-weight:600;
+    color:var(--primary);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    animation:fadeIn 1s ease infinite alternate;
+}
+
+.loader-dots{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.loader-dots span{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--primary);
+    animation:dotBounce 1.2s infinite ease-in-out;
+}
+
+.loader-dots span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.loader-dots span:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes loaderPulse{
+
+    0%{
+        transform:scale(.9);
+        opacity:.8;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(.9);
+        opacity:.8;
+    }
+
+}
+
+@keyframes dotBounce{
+
+    0%,80%,100%{
+        transform:scale(0);
+    }
+
+    40%{
+        transform:scale(1);
+    }
+
+}
+
+/*=========================================
+  Spinner Animations
+=========================================*/
+
+.spinner{
+    width:60px;
+    height:60px;
+    border:5px solid rgba(13,110,253,.15);
+    border-top:5px solid var(--primary);
+    border-radius:50%;
+    animation:spinnerRotate 1s linear infinite;
+}
+
+.spinner-sm{
+    width:35px;
+    height:35px;
+    border-width:4px;
+}
+
+.spinner-lg{
+    width:80px;
+    height:80px;
+    border-width:6px;
+}
+
+@keyframes spinnerRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.double-spinner{
+    position:relative;
+    width:80px;
+    height:80px;
+}
+
+.double-spinner::before,
+.double-spinner::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:5px solid transparent;
+}
+
+.double-spinner::before{
+    border-top-color:var(--primary);
+    animation:spinnerRotate 1s linear infinite;
+}
+
+.double-spinner::after{
+    inset:10px;
+    border-bottom-color:var(--secondary);
+    animation:spinnerRotate 1.5s linear infinite reverse;
+}
+
+.pulse-spinner{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:rgba(13,110,253,.15);
+    animation:loaderPulse 1.5s ease-in-out infinite;
+}
+
+.spinner-grow-custom{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:var(--primary);
+    animation:growSpinner .8s infinite alternate;
+}
+
+@keyframes growSpinner{
+
+    from{
+        transform:scale(.5);
+        opacity:.5;
+    }
+
+    to{
+        transform:scale(1.3);
+        opacity:1;
+    }
+
+}
+/*==================================================
+  Progress Bar + Scroll Animations
+==================================================*/
+
+/*=========================================
+  Progress Bar
+=========================================*/
+
+.progress-container{
+    width:100%;
+    height:8px;
+    background:rgba(13,110,253,.12);
+    border-radius:50px;
+    overflow:hidden;
+    position:relative;
+}
+
+.progress-bar-custom{
+    width:0;
+    height:100%;
+    background:linear-gradient(90deg,
+        var(--primary),
+        var(--secondary));
+    border-radius:50px;
+    animation:progressFill 2.5s ease forwards;
+}
+
+@keyframes progressFill{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+.progress-striped{
+    background:linear-gradient(
+        45deg,
+        rgba(255,255,255,.25) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255,255,255,.25) 50%,
+        rgba(255,255,255,.25) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size:35px 35px;
+    animation:progressStripe 1s linear infinite;
+}
+
+@keyframes progressStripe{
+
+    from{
+        background-position:0 0;
+    }
+
+    to{
+        background-position:35px 0;
+    }
+
+}
+
+.progress-glow{
+    box-shadow:0 0 15px rgba(13,110,253,.45);
+}
+
+.skill-progress{
+    margin-bottom:25px;
+}
+
+.skill-progress h6{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.progress-circle{
+    animation:rotate 2s linear infinite;
+}
+
+/*=========================================
+  Scroll Animations
+=========================================*/
+
+@keyframes scrollFadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(70px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes scrollFadeLeft{
+
+    from{
+        opacity:0;
+        transform:translateX(-70px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+@keyframes scrollFadeRight{
+
+    from{
+        opacity:0;
+        transform:translateX(70px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+@keyframes scrollZoom{
+
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.scroll-reveal{
+    opacity:0;
+    animation:scrollFadeUp .9s ease forwards;
+}
+
+.scroll-left{
+    opacity:0;
+    animation:scrollFadeLeft .9s ease forwards;
+}
+
+.scroll-right{
+    opacity:0;
+    animation:scrollFadeRight .9s ease forwards;
+}
+
+.scroll-zoom{
+    opacity:0;
+    animation:scrollZoom .9s ease forwards;
+}
+
+.scroll-delay-1{
+    animation-delay:.2s;
+}
+
+.scroll-delay-2{
+    animation-delay:.4s;
+}
+
+.scroll-delay-3{
+    animation-delay:.6s;
+}
+
+.scroll-delay-4{
+    animation-delay:.8s;
+}
+
+.scroll-delay-5{
+    animation-delay:1s;
+}
+
+.scroll-visible{
+    opacity:1 !important;
+}
+
+.scroll-hidden{
+    opacity:0;
+}
+
+.parallax{
+    transition:transform .15s linear;
+}
+
+.back-to-top.show{
+    animation:bounceIn .6s ease;
+}
+
+.section-reveal{
+    animation:fadeInUp 1s ease forwards;
+}
+/*==================================================
+  Counter Animation + Typing Effects
+==================================================*/
+
+/*=========================================
+  Counter Animation
+=========================================*/
+
+.counter{
+    display:inline-block;
+    font-weight:700;
+    animation:counterFade 1s ease;
+}
+
+@keyframes counterFade{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes counterPop{
+
+    0%{
+        transform:scale(.5);
+        opacity:0;
+    }
+
+    60%{
+        transform:scale(1.15);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+@keyframes counterGlow{
+
+    0%{
+        text-shadow:0 0 0 rgba(13,110,253,0);
+    }
+
+    50%{
+        text-shadow:0 0 18px rgba(13,110,253,.55);
+    }
+
+    100%{
+        text-shadow:0 0 0 rgba(13,110,253,0);
+    }
+
+}
+
+.counter-pop{
+    animation:counterPop .8s ease forwards;
+}
+
+.counter-glow{
+    animation:counterGlow 2s ease-in-out infinite;
+}
+
+.counter-bounce{
+    animation:bounce 1.5s infinite;
+}
+
+.counter-zoom{
+    animation:zoomIn .8s ease forwards;
+}
+
+.counter-slide{
+    animation:slideUp .8s ease forwards;
+}
+
+.counter-delay-1{
+    animation-delay:.2s;
+}
+
+.counter-delay-2{
+    animation-delay:.4s;
+}
+
+.counter-delay-3{
+    animation-delay:.6s;
+}
+
+.counter-delay-4{
+    animation-delay:.8s;
+}
+
+.counter-delay-5{
+    animation-delay:1s;
+}
+
+.stats-card:hover .counter{
+    animation:counterPop .8s ease;
+}
+
+/*=========================================
+  Typing Effects
+=========================================*/
+
+.typing{
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid var(--primary);
+    width:0;
+    animation:
+        typing 4s steps(40,end) forwards,
+        blinkCursor .8s infinite;
+}
+
+@keyframes typing{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+@keyframes blinkCursor{
+
+    0%,100%{
+        border-color:transparent;
+    }
+
+    50%{
+        border-color:var(--primary);
+    }
+
+}
+
+.typing-loop{
+    animation:
+        typing 4s steps(40,end) infinite alternate,
+        blinkCursor .8s infinite;
+}
+
+.typing-fast{
+    animation-duration:2s;
+}
+
+.typing-slow{
+    animation-duration:6s;
+}
+
+.typing-delay-1{
+    animation-delay:.5s;
+}
+
+.typing-delay-2{
+    animation-delay:1s;
+}
+
+.typing-delay-3{
+    animation-delay:1.5s;
+}
+
+.typing-center{
+    display:inline-block;
+    margin:auto;
+}
+
+.cursor{
+    display:inline-block;
+    animation:blinkCursor .8s infinite;
+}
+
+.cursor::after{
+    content:"|";
+    color:var(--primary);
+}
+
+.hero-title.typing{
+    max-width:max-content;
+}
+
+.typing-remove-cursor{
+    border-right:none;
+}
+/*==================================================
+  Service Card Effects + Portfolio Hover
+==================================================*/
+
+/*=========================================
+  Service Card Effects
+=========================================*/
+
+@keyframes serviceFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes serviceGlow{
+
+    0%{
+        box-shadow:0 0 0 rgba(13,110,253,.15);
+    }
+
+    50%{
+        box-shadow:0 18px 45px rgba(13,110,253,.35);
+    }
+
+    100%{
+        box-shadow:0 0 0 rgba(13,110,253,.15);
+    }
+
+}
+
+.service-card{
+    overflow:hidden;
+    position:relative;
+    transition:all .4s ease;
+}
+
+.service-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+    transition:.6s;
+}
+
+.service-card:hover::before{
+    left:100%;
+}
+
+.service-card:hover{
+    transform:translateY(-12px);
+    animation:serviceGlow 1.5s ease;
+}
+
+.service-card:hover .service-icon{
+    animation:serviceFloat 2s ease-in-out infinite;
+}
+
+.service-card:hover .service-icon i{
+    animation:bounce 1s;
+}
+
+.service-card h4{
+    transition:.35s;
+}
+
+.service-card:hover h4{
+    color:var(--primary);
+}
+
+.service-card .btn{
+    transition:.35s;
+}
+
+.service-card:hover .btn{
+    transform:translateX(6px);
+}
+
+.service-card:hover p{
+    color:var(--text-dark);
+}
+
+/*=========================================
+  Portfolio Hover Effects
+=========================================*/
+
+.portfolio-card{
+    position:relative;
+    overflow:hidden;
+    transition:all .45s ease;
+}
+
+.portfolio-image{
+    overflow:hidden;
+}
+
+.portfolio-image img{
+    transition:transform .6s ease,
+               filter .6s ease;
+}
+
+.portfolio-card:hover img{
+    transform:scale(1.12);
+    filter:brightness(.8);
+}
+
+.portfolio-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:all .45s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay{
+    opacity:1;
+    visibility:visible;
+}
+
+.portfolio-overlay h4{
+    animation:fadeInDown .6s ease;
+}
+
+.portfolio-overlay p{
+    animation:fadeInUp .7s ease;
+}
+
+.portfolio-overlay .btn{
+    animation:zoomIn .8s ease;
+}
+
+.portfolio-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 45px rgba(0,0,0,.18);
+}
+
+.portfolio-category{
+    transition:.35s;
+}
+
+.portfolio-card:hover .portfolio-category{
+    color:var(--primary);
+}
+
+.portfolio-link{
+    transition:.35s;
+}
+
+.portfolio-link:hover{
+    transform:rotate(45deg) scale(1.15);
+}
+
+.portfolio-card:hover .portfolio-content{
+    animation:fadeInUp .8s ease;
+}
+
+.portfolio-card:hover .portfolio-badge{
+    animation:bounceIn .8s ease;
+}
+
+.portfolio-filter button{
+    transition:.35s ease;
+}
+
+.portfolio-filter button:hover{
+    transform:translateY(-4px);
+}
+
+.portfolio-filter .active{
+    animation:buttonPulse 1s ease;
+}
+/*==================================================
+  Team Hover + Blog Hover
+==================================================*/
+
+/*=========================================
+  Team Hover Effects
+=========================================*/
+
+.team-card{
+    position:relative;
+    overflow:hidden;
+    transition:all .45s ease;
+}
+
+.team-image{
+    overflow:hidden;
+    position:relative;
+}
+
+.team-image img{
+    transition:transform .6s ease,
+               filter .6s ease;
+}
+
+.team-card:hover img{
+    transform:scale(1.08);
+    filter:brightness(.88);
+}
+
+.team-social{
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+    transition:all .45s ease;
+}
+
+.team-card:hover .team-social{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.team-social a{
+    transition:all .35s ease;
+}
+
+.team-social a:hover{
+    transform:translateY(-5px) rotate(360deg);
+    animation:buttonPulse .8s ease;
+}
+
+.team-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+.team-card:hover .team-content{
+    animation:fadeInUp .7s ease;
+}
+
+.team-card:hover h4{
+    color:var(--primary);
+}
+
+.team-card:hover .team-role{
+    animation:fadeIn .8s ease;
+}
+
+.team-card:hover .team-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(13,110,253,.15);
+    animation:fadeIn .4s ease;
+}
+
+.team-card:hover .team-badge{
+    animation:bounceIn .8s ease;
+}
+
+.team-card:hover .team-icon{
+    animation:iconPulse .8s ease;
+}
+
+.team-card:hover .team-btn{
+    transform:translateX(5px);
+}
+
+.team-card:hover .team-description{
+    animation:fadeInUp .9s ease;
+}
+
+/*=========================================
+  Blog Hover Effects
+=========================================*/
+
+.blog-card{
+    position:relative;
+    overflow:hidden;
+    transition:all .45s ease;
+}
+
+.blog-image{
+    overflow:hidden;
+}
+
+.blog-image img{
+    transition:transform .6s ease,
+               filter .6s ease;
+}
+
+.blog-card:hover img{
+    transform:scale(1.1);
+    filter:brightness(.9);
+}
+
+.blog-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 42px rgba(0,0,0,.18);
+}
+
+.blog-card:hover .blog-content{
+    animation:fadeInUp .8s ease;
+}
+
+.blog-card:hover .blog-title{
+    color:var(--primary);
+}
+
+.blog-card:hover .blog-date{
+    animation:bounceIn .8s ease;
+}
+
+.blog-card:hover .blog-category{
+    animation:fadeInDown .6s ease;
+}
+
+.blog-card:hover .blog-author{
+    animation:fadeInLeft .7s ease;
+}
+
+.blog-card:hover .blog-meta{
+    animation:fadeInRight .7s ease;
+}
+
+.blog-card:hover .read-more{
+    transform:translateX(6px);
+}
+
+.blog-card:hover .read-more i{
+    animation:slideRight .6s ease;
+}
+
+.blog-card:hover .blog-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.12);
+    animation:fadeIn .35s ease;
+}
+
+.blog-card:hover .blog-tag{
+    animation:zoomIn .7s ease;
+}
+
+.blog-card:hover .blog-icon{
+    animation:iconPulse .8s ease;
+}
+
+.blog-card:hover .blog-footer{
+    animation:fadeInUp .9s ease;
+}
+/*==================================================
+  Testimonial Effects + Swiper Effects
+==================================================*/
+
+/*=========================================
+  Testimonial Effects
+=========================================*/
+
+.testimonial-card{
+    position:relative;
+    overflow:hidden;
+    transition:all .45s ease;
+}
+
+.testimonial-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.20),
+        transparent
+    );
+    transition:.7s ease;
+}
+
+.testimonial-card:hover::before{
+    left:100%;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+.testimonial-card:hover .quote-icon{
+    animation:rotateIn .8s ease;
+}
+
+.testimonial-card:hover .testimonial-user img{
+    animation:bounceIn .8s ease;
+}
+
+.testimonial-card:hover .testimonial-user h5{
+    color:var(--primary);
+}
+
+.testimonial-card:hover .rating{
+    animation:fadeInUp .7s ease;
+}
+
+.testimonial-card:hover p{
+    animation:fadeIn .8s ease;
+}
+
+.testimonial-card:hover .testimonial-company{
+    animation:fadeInRight .8s ease;
+}
+
+.testimonial-card:hover .verified-badge{
+    animation:zoomIn .6s ease;
+}
+
+.testimonial-card:hover .testimonial-footer{
+    animation:fadeInUp .9s ease;
+}
+
+.testimonial-card:hover .quote-icon i{
+    animation:iconPulse .9s ease infinite;
+}
+
+.testimonial-card.active{
+    animation:serviceGlow 2s ease-in-out infinite;
+}
+
+/*=========================================
+  Swiper Effects
+=========================================*/
+
+.swiper{
+    overflow:hidden;
+    position:relative;
+}
+
+.swiper-slide{
+    transition:
+        transform .45s ease,
+        opacity .45s ease;
+}
+
+.swiper-slide-active{
+    opacity:1;
+    transform:scale(1);
+}
+
+.swiper-slide-next,
+.swiper-slide-prev{
+    opacity:.75;
+    transform:scale(.95);
+}
+
+.swiper-slide:not(.swiper-slide-active){
+    filter:blur(1px);
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    transition:all .35s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+    transform:scale(1.15);
+    animation:buttonPulse .8s ease;
+}
+
+.swiper-pagination-bullet{
+    transition:all .35s ease;
+}
+
+.swiper-pagination-bullet:hover{
+    transform:scale(1.4);
+}
+
+.swiper-pagination-bullet-active{
+    animation:buttonGlow 1s ease;
+}
+
+.swiper-fade .swiper-slide-active{
+    animation:fadeIn .8s ease;
+}
+
+.swiper-horizontal{
+    cursor:grab;
+}
+
+.swiper-horizontal:active{
+    cursor:grabbing;
+}
+
+.swiper-auto-height{
+    transition:height .35s ease;
+}
+
+.swiper-wrapper{
+    transition-timing-function:ease-in-out;
+}
+
+.swiper-slide:hover{
+    transform:translateY(-6px);
+}
+
+.swiper-slide:hover .testimonial-card,
+.swiper-slide:hover .portfolio-card{
+    animation:fadeInUp .6s ease;
+}
+
+.swiper-scrollbar-drag{
+    animation:progressFill 3s linear infinite;
+}
+/*==================================================
+  Form Animations + Modal Effects
+==================================================*/
+
+/*=========================================
+  Form Animations
+=========================================*/
+
+@keyframes formFadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes inputGlow{
+
+    0%{
+        box-shadow:0 0 0 rgba(13,110,253,0);
+    }
+
+    100%{
+        box-shadow:0 0 18px rgba(13,110,253,.35);
+    }
+
+}
+
+@keyframes inputShake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    20%,60%{
+        transform:translateX(-6px);
+    }
+
+    40%,80%{
+        transform:translateX(6px);
+    }
+
+}
+
+.contact-form,
+.newsletter-form,
+.register-form{
+    animation:formFadeIn .8s ease;
+}
+
+.form-control,
+.form-select,
+textarea{
+    transition:
+        border-color .35s ease,
+        box-shadow .35s ease,
+        transform .35s ease;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus{
+    animation:inputGlow .35s forwards;
+    transform:translateY(-2px);
+}
+
+.form-control.error,
+.form-select.error{
+    animation:inputShake .45s ease;
+}
+
+.form-control.success{
+    border-color:#198754;
+}
+
+.form-icon{
+    transition:.35s ease;
+}
+
+.form-group:focus-within .form-icon{
+    color:var(--primary);
+    transform:scale(1.15);
+}
+
+.form-label{
+    transition:.35s ease;
+}
+
+.form-group:focus-within .form-label{
+    color:var(--primary);
+}
+
+.submit-btn:hover{
+    animation:buttonPulse .8s infinite;
+}
+
+.form-success{
+    animation:bounceIn .7s ease;
+}
+
+.form-error{
+    animation:fadeInDown .6s ease;
+}
+
+/*=========================================
+  Modal Effects
+=========================================*/
+
+@keyframes modalFade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes modalZoom{
+
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.modal.fade .modal-dialog{
+    animation:modalZoom .35s ease;
+}
+
+.modal.show{
+    animation:modalFade .35s ease;
+}
+
+.modal-content{
+    transition:all .35s ease;
+}
+
+.modal-header{
+    animation:fadeInDown .5s ease;
+}
+
+.modal-body{
+    animation:fadeIn .6s ease;
+}
+
+.modal-footer{
+    animation:fadeInUp .6s ease;
+}
+
+.modal-title{
+    animation:slideRight .5s ease;
+}
+
+.modal .btn{
+    transition:.35s ease;
+}
+
+.modal .btn:hover{
+    transform:translateY(-3px);
+}
+
+.modal-close{
+    transition:.35s ease;
+}
+
+.modal-close:hover{
+    transform:rotate(90deg);
+}
+
+.modal-backdrop.show{
+    animation:modalFade .3s ease;
+}
+
+.modal-icon{
+    animation:bounceIn .7s ease;
+}
+
+.modal-success{
+    animation:zoomIn .7s ease;
+}
+
+.modal-warning{
+    animation:bounce .9s ease;
+}
+
+.modal-error{
+    animation:inputShake .5s ease;
+}
+/*==================================================
+  Dropdown Effects + Search Animation
+==================================================*/
+
+/*=========================================
+  Dropdown Effects
+=========================================*/
+
+@keyframes dropdownFade{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes dropdownScale{
+
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.dropdown-menu{
+    opacity:0;
+    visibility:hidden;
+    display:block;
+    transform:translateY(15px);
+    transition:all .35s ease;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+    animation:dropdownFade .35s ease;
+}
+
+.dropdown-item{
+    transition:all .3s ease;
+}
+
+.dropdown-item:hover{
+    padding-left:24px;
+    background:rgba(13,110,253,.08);
+    color:var(--primary);
+}
+
+.dropdown-item i{
+    transition:transform .3s ease;
+}
+
+.dropdown-item:hover i{
+    transform:translateX(5px);
+}
+
+.dropdown-arrow{
+    transition:transform .35s ease;
+}
+
+.dropdown:hover .dropdown-arrow{
+    transform:rotate(180deg);
+}
+
+.dropdown-scale{
+    animation:dropdownScale .35s ease;
+}
+
+.dropdown-divider{
+    transition:background .3s ease;
+}
+
+.dropdown-item.active{
+    animation:fadeIn .5s ease;
+}
+
+.dropdown-item:active{
+    transform:scale(.98);
+}
+
+/*=========================================
+  Search Animation
+=========================================*/
+
+@keyframes searchExpand{
+
+    from{
+        width:0;
+        opacity:0;
+    }
+
+    to{
+        width:280px;
+        opacity:1;
+    }
+
+}
+
+@keyframes searchPulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+.search-box{
+    overflow:hidden;
+    transition:all .4s ease;
+}
+
+.search-box.active{
+    animation:searchExpand .4s ease forwards;
+}
+
+.search-input{
+    transition:
+        border-color .35s ease,
+        box-shadow .35s ease,
+        padding .35s ease;
+}
+
+.search-input:focus{
+    box-shadow:0 0 15px rgba(13,110,253,.25);
+    border-color:var(--primary);
+}
+
+.search-btn{
+    transition:all .35s ease;
+}
+
+.search-btn:hover{
+    animation:searchPulse .8s infinite;
+}
+
+.search-btn i{
+    transition:transform .35s ease;
+}
+
+.search-btn:hover i{
+    transform:rotate(90deg);
+}
+
+.search-icon{
+    animation:fadeIn .6s ease;
+}
+
+.search-result{
+    animation:fadeInDown .4s ease;
+}
+
+.search-highlight{
+    animation:buttonGlow 1.2s ease;
+}
+
+.search-clear{
+    transition:all .3s ease;
+}
+
+.search-clear:hover{
+    transform:rotate(180deg);
+    color:var(--danger);
+}
+
+.search-overlay{
+    animation:fadeIn .3s ease;
+}
+
+.search-suggestion{
+    transition:all .3s ease;
+}
+
+.search-suggestion:hover{
+    padding-left:18px;
+    background:rgba(13,110,253,.06);
+}
+
+.search-loading{
+    animation:spinnerRotate 1s linear infinite;
+}
+
+.search-empty{
+    animation:fadeIn .5s ease;
+}
+/*==================================================
+  Dark Mode Transition + Back-to-Top Animation
+==================================================*/
+
+/*=========================================
+  Dark Mode Transition
+=========================================*/
+
+html,
+body,
+header,
+section,
+footer,
+.card,
+.btn,
+.navbar,
+.dropdown-menu,
+.modal-content{
+    transition:
+        background-color .4s ease,
+        color .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.dark-mode{
+    transition:all .4s ease-in-out;
+}
+
+.dark-mode-toggle{
+    cursor:pointer;
+    transition:all .35s ease;
+}
+
+.dark-mode-toggle:hover{
+    transform:rotate(180deg) scale(1.1);
+}
+
+.dark-mode-toggle i{
+    transition:all .35s ease;
+}
+
+.dark-mode-toggle:hover i{
+    color:var(--warning);
+}
+
+.theme-icon{
+    animation:themeRotate .6s ease;
+}
+
+@keyframes themeRotate{
+
+    from{
+        transform:rotate(0deg) scale(.7);
+        opacity:0;
+    }
+
+    to{
+        transform:rotate(360deg) scale(1);
+        opacity:1;
+    }
+
+}
+
+.dark-mode .card,
+.dark-mode .service-card,
+.dark-mode .portfolio-card,
+.dark-mode .blog-card{
+    animation:fadeIn .4s ease;
+}
+
+.dark-mode .navbar{
+    animation:slideDown .4s ease;
+}
+
+.dark-mode .footer{
+    animation:fadeInUp .5s ease;
+}
+
+.theme-switch-active{
+    animation:bounceIn .6s ease;
+}
+
+.theme-fade{
+    animation:fadeIn .5s ease;
+}
+
+.theme-slide{
+    animation:slideUp .5s ease;
+}
+
+.theme-scale{
+    animation:zoomIn .5s ease;
+}
+
+/*=========================================
+  Back-to-Top Animation
+=========================================*/
+
+@keyframes backToTopShow{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes backToTopPulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+#backToTop{
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        background .35s ease;
+}
+
+#backToTop.show{
+    animation:backToTopShow .5s ease forwards;
+}
+
+#backToTop:hover{
+    animation:backToTopPulse .8s infinite;
+}
+
+#backToTop:hover i{
+    animation:bounce .8s infinite;
+}
+
+#backToTop:active{
+    transform:scale(.92);
+}
+
+.back-top-icon{
+    transition:transform .35s ease;
+}
+
+#backToTop:hover .back-top-icon{
+    transform:translateY(-4px);
+}
+
+.scroll-progress{
+    animation:progressFill 2s linear;
+}
+
+.scroll-indicator{
+    animation:bounce 2s infinite;
+}
+
+.page-scroll-top{
+    animation:fadeInDown .5s ease;
+}
+
+.scroll-arrow{
+    animation:slideUp 1s ease infinite;
+}
+
+.scroll-button-glow{
+    animation:buttonGlow 1.5s ease-in-out infinite;
+}
+
+.back-top-visible{
+    opacity:1;
+    visibility:visible;
+}
+
+.back-top-hidden{
+    opacity:0;
+    visibility:hidden;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+/*==================================================
+  404 Animations + Footer Effects
+==================================================*/
+
+/*=========================================
+  404 Page Animations
+=========================================*/
+
+@keyframes errorBounce{
+
+    0%,20%,50%,80%,100%{
+        transform:translateY(0);
+    }
+
+    40%{
+        transform:translateY(-18px);
+    }
+
+    60%{
+        transform:translateY(-8px);
+    }
+
+}
+
+@keyframes errorFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes errorGlow{
+
+    0%{
+        text-shadow:0 0 0 rgba(13,110,253,.2);
+    }
+
+    50%{
+        text-shadow:0 0 30px rgba(13,110,253,.5);
+    }
+
+    100%{
+        text-shadow:0 0 0 rgba(13,110,253,.2);
+    }
+
+}
+
+.error-code{
+    animation:errorBounce 3s infinite;
+}
+
+.error-title{
+    animation:fadeInDown .8s ease;
+}
+
+.error-text{
+    animation:fadeInUp 1s ease;
+}
+
+.error-image{
+    animation:errorFloat 5s ease-in-out infinite;
+}
+
+.error-image img{
+    transition:transform .5s ease;
+}
+
+.error-image:hover img{
+    transform:scale(1.08) rotate(3deg);
+}
+
+.error-buttons .btn{
+    animation:fadeInUp 1.2s ease;
+}
+
+.error-buttons .btn:hover{
+    transform:translateY(-4px);
+}
+
+.error-icon{
+    animation:rotateIn .8s ease;
+}
+
+.error-glow{
+    animation:errorGlow 2.5s ease-in-out infinite;
+}
+
+.error-card{
+    transition:all .4s ease;
+}
+
+.error-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+/*=========================================
+  Footer Effects
+=========================================*/
+
+.footer{
+    animation:fadeInUp .8s ease;
+}
+
+.footer-logo{
+    transition:all .35s ease;
+}
+
+.footer-logo:hover{
+    transform:scale(1.05);
+}
+
+.footer-logo img{
+    transition:transform .5s ease;
+}
+
+.footer-logo:hover img{
+    animation:rotateIn .8s ease;
+}
+
+.footer-title{
+    position:relative;
+}
+
+.footer-title::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:var(--primary);
+    transition:.4s ease;
+}
+
+.footer-column:hover .footer-title::after{
+    width:60px;
+}
+
+.footer-links li{
+    transition:.3s ease;
+}
+
+.footer-links li:hover{
+    transform:translateX(8px);
+}
+
+.footer-links a{
+    transition:.35s ease;
+}
+
+.footer-links a:hover{
+    color:var(--primary);
+}
+
+.footer-contact i{
+    transition:.35s ease;
+}
+
+.footer-contact:hover i{
+    animation:iconPulse .8s ease;
+}
+
+.footer-bottom{
+    animation:fadeIn .8s ease;
+}
+
+.footer-divider{
+    animation:progressFill 1.2s ease;
+}
+
+.footer-copyright{
+    transition:.3s ease;
+}
+
+.footer-copyright:hover{
+    letter-spacing:.5px;
+}
+
+.footer-wave{
+    animation:imageFloat 6s ease-in-out infinite;
+}
+
+.footer-badge{
+    animation:bounceIn .9s ease;
+}
+/*==================================================
+  Social Icons + Newsletter Animation
+==================================================*/
+
+/*=========================================
+  Social Icons Animations
+=========================================*/
+
+@keyframes socialPulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.2);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+@keyframes socialRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes socialGlow{
+
+    0%{
+        box-shadow:0 0 0 rgba(13,110,253,.20);
+    }
+
+    50%{
+        box-shadow:0 0 22px rgba(13,110,253,.55);
+    }
+
+    100%{
+        box-shadow:0 0 0 rgba(13,110,253,.20);
+    }
+
+}
+
+.social-icons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.social-icons a{
+    position:relative;
+    overflow:hidden;
+    transition:all .35s ease;
+}
+
+.social-icons a:hover{
+    transform:translateY(-6px);
+    animation:socialGlow 1.2s ease;
+}
+
+.social-icons a i{
+    transition:all .35s ease;
+}
+
+.social-icons a:hover i{
+    animation:socialRotate .8s linear;
+}
+
+.social-facebook:hover{
+    color:#1877f2;
+}
+
+.social-instagram:hover{
+    color:#e1306c;
+}
+
+.social-linkedin:hover{
+    color:#0a66c2;
+}
+
+.social-twitter:hover{
+    color:#1da1f2;
+}
+
+.social-youtube:hover{
+    color:#ff0000;
+}
+
+.social-github:hover{
+    color:#333333;
+}
+
+.social-whatsapp:hover{
+    color:#25d366;
+}
+
+.social-icons .active{
+    animation:socialPulse 1.5s infinite;
+}
+
+.social-icons .badge{
+    animation:bounceIn .7s ease;
+}
+
+.footer-social a:hover{
+    transform:scale(1.15) rotate(10deg);
+}
+
+.team-social a:hover,
+.contact-social a:hover{
+    animation:socialPulse .8s ease;
+}
+
+/*=========================================
+  Newsletter Animation
+=========================================*/
+
+@keyframes newsletterSlide{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes newsletterGlow{
+
+    0%{
+        box-shadow:0 0 0 rgba(13,110,253,.15);
+    }
+
+    50%{
+        box-shadow:0 0 35px rgba(13,110,253,.40);
+    }
+
+    100%{
+        box-shadow:0 0 0 rgba(13,110,253,.15);
+    }
+
+}
+
+.newsletter{
+    animation:newsletterSlide .9s ease;
+}
+
+.newsletter-box{
+    transition:all .4s ease;
+}
+
+.newsletter-box:hover{
+    animation:newsletterGlow 2s ease-in-out infinite;
+}
+
+.newsletter h2{
+    animation:fadeInDown .8s ease;
+}
+
+.newsletter p{
+    animation:fadeInUp .9s ease;
+}
+
+.newsletter-form{
+    animation:fadeInUp 1s ease;
+}
+
+.newsletter-form input{
+    transition:all .35s ease;
+}
+
+.newsletter-form input:focus{
+    transform:translateY(-2px);
+    box-shadow:0 0 15px rgba(13,110,253,.25);
+}
+
+.newsletter-form .btn:hover{
+    animation:buttonPulse .8s infinite;
+}
+
+.newsletter-success{
+    animation:bounceIn .8s ease;
+}
+
+.newsletter-error{
+    animation:inputShake .5s ease;
+}
+
+.newsletter-icon{
+    animation:imageFloat 4s ease-in-out infinite;
+}
+
+.newsletter-badge{
+    animation:zoomIn .7s ease;
+}
+/*==================================================
+  Page Transition + Print Animation Reset
+==================================================*/
+
+/*=========================================
+  Page Transition Animations
+=========================================*/
+
+@keyframes pageFadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes pageSlideUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes pageZoom{
+
+    from{
+        opacity:0;
+        transform:scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+body{
+    animation:pageFadeIn .6s ease-in-out;
+}
+
+.page-transition{
+    animation:pageSlideUp .7s ease forwards;
+}
+
+.page-enter{
+    animation:pageFadeIn .5s ease;
+}
+
+.page-exit{
+    animation:fadeOut .4s ease forwards;
+}
+
+.page-zoom{
+    animation:pageZoom .6s ease;
+}
+
+.section-transition{
+    animation:fadeInUp .8s ease forwards;
+}
+
+.content-transition{
+    animation:fadeIn .7s ease;
+}
+
+.card-transition{
+    animation:zoomIn .6s ease;
+}
+
+.image-transition{
+    animation:fadeInRight .8s ease;
+}
+
+.text-transition{
+    animation:fadeInLeft .8s ease;
+}
+
+.transition-fast{
+    animation-duration:.3s;
+}
+
+.transition-normal{
+    animation-duration:.6s;
+}
+
+.transition-slow{
+    animation-duration:1s;
+}
+
+.transition-delay-1{
+    animation-delay:.2s;
+}
+
+.transition-delay-2{
+    animation-delay:.4s;
+}
+
+.transition-delay-3{
+    animation-delay:.6s;
+}
+
+.transition-delay-4{
+    animation-delay:.8s;
+}
+
+.transition-delay-5{
+    animation-delay:1s;
+}
+
+.smooth-transition{
+    transition:all .35s ease-in-out;
+}
+
+/*=========================================
+  Print Animation Reset
+=========================================*/
+
+@media print{
+
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        transform:none !important;
+        filter:none !important;
+        box-shadow:none !important;
+        text-shadow:none !important;
+    }
+
+    html{
+        scroll-behavior:auto !important;
+    }
+
+    body{
+        animation:none !important;
+        opacity:1 !important;
+    }
+
+    .animate,
+    .fade-in,
+    .fade-up,
+    .fade-down,
+    .fade-left,
+    .fade-right,
+    .slide-up,
+    .slide-down,
+    .slide-left,
+    .slide-right,
+    .zoom-in,
+    .rotate,
+    .bounce,
+    .page-transition,
+    .page-enter,
+    .page-exit{
+        animation:none !important;
+    }
+
+    .hover-grow:hover,
+    .hover-lift:hover,
+    .hover-shadow:hover,
+    .hover-rotate:hover{
+        transform:none !important;
+        box-shadow:none !important;
+    }
+
+    .service-card:hover,
+    .portfolio-card:hover,
+    .team-card:hover,
+    .blog-card:hover,
+    .pricing-card:hover,
+    .career-card:hover,
+    .office-card:hover,
+    .testimonial-card:hover{
+        transform:none !important;
+    }
+
+    .social-icons a:hover,
+    .btn:hover,
+    .image-hover:hover img{
+        animation:none !important;
+        transform:none !important;
+    }
+
+    .spinner,
+    .double-spinner,
+    .pulse-spinner,
+    #preloader{
+        display:none !important;
+    }
+
+}
+
+/*==================================================
+  Animation Delay Classes + Animation Duration Classes
+==================================================*/
+
+/*=========================================
+  Animation Delay Classes
+=========================================*/
+
+.delay-0{
+    animation-delay:0s;
+}
+
+.delay-1{
+    animation-delay:.1s;
+}
+
+.delay-2{
+    animation-delay:.2s;
+}
+
+.delay-3{
+    animation-delay:.3s;
+}
+
+.delay-4{
+    animation-delay:.4s;
+}
+
+.delay-5{
+    animation-delay:.5s;
+}
+
+.delay-6{
+    animation-delay:.6s;
+}
+
+.delay-7{
+    animation-delay:.7s;
+}
+
+.delay-8{
+    animation-delay:.8s;
+}
+
+.delay-9{
+    animation-delay:.9s;
+}
+
+.delay-10{
+    animation-delay:1s;
+}
+
+.delay-11{
+    animation-delay:1.1s;
+}
+
+.delay-12{
+    animation-delay:1.2s;
+}
+
+.delay-13{
+    animation-delay:1.3s;
+}
+
+.delay-14{
+    animation-delay:1.4s;
+}
+
+.delay-15{
+    animation-delay:1.5s;
+}
+
+.delay-16{
+    animation-delay:1.6s;
+}
+
+.delay-17{
+    animation-delay:1.7s;
+}
+
+.delay-18{
+    animation-delay:1.8s;
+}
+
+.delay-19{
+    animation-delay:1.9s;
+}
+
+.delay-20{
+    animation-delay:2s;
+}
+
+.stagger-children > *:nth-child(1){animation-delay:.1s;}
+.stagger-children > *:nth-child(2){animation-delay:.2s;}
+.stagger-children > *:nth-child(3){animation-delay:.3s;}
+.stagger-children > *:nth-child(4){animation-delay:.4s;}
+.stagger-children > *:nth-child(5){animation-delay:.5s;}
+.stagger-children > *:nth-child(6){animation-delay:.6s;}
+.stagger-children > *:nth-child(7){animation-delay:.7s;}
+.stagger-children > *:nth-child(8){animation-delay:.8s;}
+.stagger-children > *:nth-child(9){animation-delay:.9s;}
+.stagger-children > *:nth-child(10){animation-delay:1s;}
+
+/*=========================================
+  Animation Duration Classes
+=========================================*/
+
+.duration-100{
+    animation-duration:.1s;
+}
+
+.duration-200{
+    animation-duration:.2s;
+}
+
+.duration-300{
+    animation-duration:.3s;
+}
+
+.duration-400{
+    animation-duration:.4s;
+}
+
+.duration-500{
+    animation-duration:.5s;
+}
+
+.duration-600{
+    animation-duration:.6s;
+}
+
+.duration-700{
+    animation-duration:.7s;
+}
+
+.duration-800{
+    animation-duration:.8s;
+}
+
+.duration-900{
+    animation-duration:.9s;
+}
+
+.duration-1000{
+    animation-duration:1s;
+}
+
+.duration-1200{
+    animation-duration:1.2s;
+}
+
+.duration-1500{
+    animation-duration:1.5s;
+}
+
+.duration-2000{
+    animation-duration:2s;
+}
+
+.duration-2500{
+    animation-duration:2.5s;
+}
+
+.duration-3000{
+    animation-duration:3s;
+}
+
+.duration-fast{
+    animation-duration:.4s;
+}
+
+.duration-normal{
+    animation-duration:.8s;
+}
+
+.duration-slow{
+    animation-duration:1.5s;
+}
+
+.duration-extra-slow{
+    animation-duration:3s;
+}
+
+.fill-forwards{
+    animation-fill-mode:forwards;
+}
+
+.fill-backwards{
+    animation-fill-mode:backwards;
+}
+
+.fill-both{
+    animation-fill-mode:both;
+}
+/*==================================================
+  Infinite Animations + Accessibility (Reduced Motion)
+==================================================*/
+
+/*=========================================
+  Infinite Animation Classes
+=========================================*/
+
+.infinite{
+    animation-iteration-count:infinite;
+}
+
+.infinite-linear{
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+
+.infinite-ease{
+    animation-iteration-count:infinite;
+    animation-timing-function:ease;
+}
+
+.infinite-alternate{
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+}
+
+.infinite-reverse{
+    animation-iteration-count:infinite;
+    animation-direction:reverse;
+}
+
+.infinite-alternate-reverse{
+    animation-iteration-count:infinite;
+    animation-direction:alternate-reverse;
+}
+
+.repeat-2{
+    animation-iteration-count:2;
+}
+
+.repeat-3{
+    animation-iteration-count:3;
+}
+
+.repeat-5{
+    animation-iteration-count:5;
+}
+
+.repeat-10{
+    animation-iteration-count:10;
+}
+
+.spin-infinite{
+    animation:spinClockwise 2s linear infinite;
+}
+
+.rotate-infinite{
+    animation:spinClockwise 8s linear infinite;
+}
+
+.bounce-infinite{
+    animation:bounce 2s infinite;
+}
+
+.pulse-infinite{
+    animation:buttonPulse 1.5s infinite;
+}
+
+.float-infinite{
+    animation:imageFloat 4s ease-in-out infinite;
+}
+
+.glow-infinite{
+    animation:buttonGlow 2s ease-in-out infinite;
+}
+
+.fade-infinite{
+    animation:fadeIn 2s ease-in-out infinite alternate;
+}
+
+.zoom-infinite{
+    animation:zoomIn 2s ease-in-out infinite alternate;
+}
+
+.wave-infinite{
+    animation:heroImageFloat 6s ease-in-out infinite;
+}
+
+.typing-infinite{
+    animation:
+        typing 5s steps(40,end) infinite alternate,
+        blinkCursor .8s infinite;
+}
+
+.loading-infinite{
+    animation:loaderPulse 1.5s infinite;
+}
+
+.spinner-infinite{
+    animation:spinnerRotate 1s linear infinite;
+}
+
+.scroll-indicator{
+    animation:bounce 2s infinite;
+}
+
+.hero-icon{
+    animation:iconPulse 2s infinite;
+}
+
+/*=========================================
+  Accessibility
+  Reduced Motion Support
+=========================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:0.01ms !important;
+        animation-delay:0ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.01ms !important;
+        transition-delay:0ms !important;
+        scroll-behavior:auto !important;
+
+    }
+
+    html{
+        scroll-behavior:auto !important;
+    }
+
+    .spinner,
+    .double-spinner,
+    .pulse-spinner,
+    .loader-logo,
+    .hero-image img,
+    .hero-shape,
+    .scroll-indicator,
+    .icon-spin,
+    .rotate,
+    .bounce,
+    .loading-infinite,
+    .typing,
+    .typing-loop,
+    .wave-infinite{
+        animation:none !important;
+    }
+
+    .btn:hover,
+    .card:hover,
+    .service-card:hover,
+    .portfolio-card:hover,
+    .team-card:hover,
+    .blog-card:hover,
+    .testimonial-card:hover{
+        transform:none !important;
+    }
+
+    .fade-in,
+    .slide-up,
+    .zoom-in{
+        opacity:1 !important;
+        transform:none !important;
+    }
+
+}
+/*==================================================
+  Browser Compatibility + End of animations.css
+==================================================*/
+
+/*=========================================
+  Browser Compatibility Helpers
+=========================================*/
+
+.browser-compatible{
+    -webkit-transition:all .35s ease;
+    -moz-transition:all .35s ease;
+    -o-transition:all .35s ease;
+    transition:all .35s ease;
+}
+
+.transform-gpu{
+    -webkit-transform:translateZ(0);
+    transform:translateZ(0);
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    will-change:transform;
+}
+
+.hardware-accelerated{
+    -webkit-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+}
+
+.smooth-render{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+.no-select{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+.touch-action{
+    touch-action:manipulation;
+}
+
+.flex-center{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    justify-content:center;
+}
+
+.object-cover{
+    -o-object-fit:cover;
+    object-fit:cover;
+}
+
+.object-contain{
+    -o-object-fit:contain;
+    object-fit:contain;
+}
+
+.text-gradient{
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.backdrop-blur{
+    -webkit-backdrop-filter:blur(12px);
+    backdrop-filter:blur(12px);
+}
+
+.clip-circle{
+    -webkit-clip-path:circle(50%);
+    clip-path:circle(50%);
+}
+
+.clip-rounded{
+    -webkit-clip-path:inset(0 round 20px);
+    clip-path:inset(0 round 20px);
+}
+
+.shadow-smooth{
+    -webkit-box-shadow:0 12px 30px rgba(0,0,0,.15);
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+}
+
+.transition-all{
+    -webkit-transition:all .35s ease;
+    transition:all .35s ease;
+}
+
+.transform-scale{
+    -webkit-transform:scale(1);
+    transform:scale(1);
+}
+
+.transform-scale:hover{
+    -webkit-transform:scale(1.05);
+    transform:scale(1.05);
+}
+
+.animation-fill{
+    animation-fill-mode:both;
+}
+
+.animation-running{
+    animation-play-state:running;
+}
+
+.animation-paused{
+    animation-play-state:paused;
+}
+
+@supports not (backdrop-filter:blur(10px)){
+
+    .glass-effect{
+        background:rgba(255,255,255,.95);
+    }
+
+}
+
+@supports (backdrop-filter:blur(10px)){
+
+    .glass-effect{
+        backdrop-filter:blur(12px);
+    }
+
+}
+

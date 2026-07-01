@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1320" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#aiBg)" rx="12" />
+  
+  <!-- Neural Net glowing core -->
+  <circle cx="400" cy="220" r="180" fill="url(#glow)" />
+  
+  <!-- Synaptic Nodes forming Brain shape -->
+  <g stroke="#a855f7" stroke-width="1.5" opacity="0.6">
+    <line x1="320" y1="140" x2="350" y2="110" />
+    <line x1="320" y1="140" x2="280" y2="180" />
+    <line x1="350" y1="110" x2="410" y2="100" />
+    <line x1="410" y1="100" x2="450" y2="120" />
+    <line x1="450" y1="120" x2="480" y2="170" />
+    <line x1="480" y1="170" x2="440" y2="220" />
+    <line x1="440" y1="220" x2="400" y2="260" />
+    <line x1="400" y1="260" x2="350" y2="240" />
+    <line x1="350" y1="240" x2="320" y2="140" />
+    
+    <line x1="350" y1="110" x2="400" y2="160" />
+    <line x1="410" y1="100" x2="400" y2="160" />
+    <line x1="450" y1="120" x2="400" y2="160" />
+    <line x1="320" y1="140" x2="400" y2="160" />
+    <line x1="280" y1="180" x2="350" y2="240" />
+    <line x1="480" y1="170" x2="400" y2="260" />
+  </g>
+
+  <!-- Glowing synaptic circles -->
+  <circle cx="320" cy="140" r="5" fill="#a855f7" />
+  <circle cx="350" cy="110" r="7" fill="#c084fc" />
+  <circle cx="410" cy="100" r="5" fill="#a855f7" />
+  <circle cx="450" cy="120" r="8" fill="#c084fc" />
+  <circle cx="480" cy="170" r="6" fill="#a855f7" />
+  <circle cx="440" cy="220" r="8" fill="#c084fc" />
+  <circle cx="400" cy="260" r="6" fill="#a855f7" />
+  <circle cx="350" cy="240" r="7" fill="#c084fc" />
+  <circle cx="280" cy="180" r="5" fill="#a855f7" />
+  <circle cx="400" cy="160" r="10" fill="#ffffff" />
+  
+  <text x="400" y="440" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="22" font-weight="800" fill="#ffffff">Navigating Artificial Intelligence in 2026</text>
+  <text x="400" y="470" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="13" font-weight="600" fill="#a855f7">ARTIFICIAL INTELLIGENCE CORE</text>
+</svg>
