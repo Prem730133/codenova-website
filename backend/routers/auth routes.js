@@ -52,6 +52,9 @@ const authMiddleware =
 const validationMiddleware =
     require("../middleware/validationMiddleware");
 
+const uploadMiddleware =
+    require("../middleware/uploadMiddleware");
+
 /*=========================================
 =             Public Routes               =
 =========================================*/
@@ -64,6 +67,13 @@ const validationMiddleware =
 router.post(
 
     "/register",
+
+    uploadMiddleware.fields([
+        { name: "profilePhoto", maxCount: 1 },
+        { name: "resume", maxCount: 1 },
+        { name: "idCard", maxCount: 1 },
+        { name: "certificate", maxCount: 1 }
+    ]),
 
     validationMiddleware,
 

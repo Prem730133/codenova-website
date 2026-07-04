@@ -1,7 +1,7 @@
 /*==================================================
   CodeNova Technologies
   backend/models/User.js
-  User Model Schema
+  User Model Schema (Expanded)
 ==================================================*/
 
 "use strict";
@@ -30,6 +30,35 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true
+        },
+        profilePhoto: {
+            type: String
+        },
+        academicInfo: {
+            collegeName: { type: String },
+            university: { type: String },
+            branch: { type: String },
+            yearOfStudy: { type: String },
+            rollNumber: { type: String },
+            cgpa: { type: Number }
+        },
+        skills: {
+            type: [String],
+            default: []
+        },
+        otherSkills: {
+            type: String
+        },
+        courseSelection: {
+            type: String
+        },
+        internshipSelection: {
+            type: String
+        },
+        documents: {
+            resume: { type: String },
+            idCard: { type: String },
+            certificate: { type: String }
         },
         verifyToken: {
             type: String

@@ -117,6 +117,30 @@ exports.submitContact = async (
 
         }
 
+        const mongoose = require("mongoose");
+        if (mongoose.connection.readyState !== 1) {
+            console.log("[DB Offline] Handling contact submission using in-memory mock store...");
+            global.mockContacts = global.mockContacts || [];
+            const mockContact = {
+                _id: "mock_c_" + Math.random().toString(36).substring(2, 9),
+                name,
+                email,
+                phone,
+                subject,
+                message,
+                status: "unread",
+                createdAt: new Date()
+            };
+            global.mockContacts.push(mockContact);
+            return successResponse(res, 201, "Contact form submitted successfully (Mock Store).", {
+                id: mockContact._id,
+                name: mockContact.name,
+                email: mockContact.email,
+                subject: mockContact.subject,
+                status: mockContact.status
+            });
+        }
+
         /*==============================
           Save Contact
         ==============================*/
@@ -206,6 +230,14 @@ exports.getAllContacts = async (
 ) => {
 
     try{
+        const mongoose = require("mongoose");
+        if (mongoose.connection.readyState !== 1) {
+            global.mockContacts = global.mockContacts || [];
+            return successResponse(res, 200, "Contacts fetched successfully (Mock Store).", {
+                total: global.mockContacts.length,
+                contacts: global.mockContacts
+            });
+        }
 
         const contacts =
 

@@ -102,6 +102,73 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
         }
+
+        /* Wizard Progress Styling */
+        .wizard-steps-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .wizard-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            flex: 1;
+            text-align: center;
+        }
+        .wizard-step .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light);
+            border: 2px solid var(--border);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 6px;
+            transition: all 0.3s ease;
+        }
+        .dark-mode .wizard-step .step-num {
+            background-color: #1e293b;
+            border-color: #334155;
+            color: #94a3b8;
+        }
+        .wizard-step.active .step-num {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+        }
+        .wizard-step.completed .step-num {
+            background-color: #198754;
+            border-color: #198754;
+            color: #fff;
+        }
+        .wizard-step .step-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+        .wizard-step.active .step-label {
+            color: var(--primary);
+        }
+        .wizard-step.completed .step-label {
+            color: #198754;
+        }
+        .step-divider {
+            height: 2px;
+            background-color: var(--border);
+            flex-grow: 1;
+            margin-bottom: 24px;
+        }
+        .dark-mode .step-divider {
+            background-color: #334155;
+        }
     </style>
 </head>
 
@@ -221,59 +288,295 @@
                         <!-- Feedback Alerts -->
                         <div id="authAlert" class="alert d-none" role="alert"></div>
 
-                        <!-- REGISTRATION & COURSE APPLICATION FORM -->
-                        <form id="formRegister" onsubmit="handleRegister(event)">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label fw-semibold">Full Name *</label>
-                                    <input type="text" class="form-control" id="regName" required placeholder="John Doe">
+                        <!-- REGISTRATION & COURSE APPLICATION FORM (WIZARD) -->
+                        <form id="formRegister" onsubmit="handleRegister(event)" enctype="multipart/form-data">
+                            
+                            <!-- Wizard Progress Indicator -->
+                            <div class="wizard-steps-container mb-4 d-flex justify-content-between align-items-center">
+                                <div class="wizard-step active" id="wizardStepIndicator1">
+                                    <div class="step-num">1</div>
+                                    <div class="step-label d-none d-sm-block">Student Info</div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-semibold">Username *</label>
-                                    <input type="text" class="form-control" id="regUsername" required placeholder="johndoe">
+                                <div class="step-divider"></div>
+                                <div class="wizard-step" id="wizardStepIndicator2">
+                                    <div class="step-num">2</div>
+                                    <div class="step-label d-none d-sm-block">Academic</div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-semibold">Email Address *</label>
-                                    <input type="email" class="form-control" id="regEmail" required placeholder="johndoe@example.com">
+                                <div class="step-divider"></div>
+                                <div class="wizard-step" id="wizardStepIndicator3">
+                                    <div class="step-num">3</div>
+                                    <div class="step-label d-none d-sm-block">Skills & Tracks</div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-semibold">Phone Number</label>
-                                    <input type="tel" class="form-control" id="regPhone" placeholder="+1234567890">
+                                <div class="step-divider"></div>
+                                <div class="wizard-step" id="wizardStepIndicator4">
+                                    <div class="step-num">4</div>
+                                    <div class="step-label d-none d-sm-block">Docs & Account</div>
                                 </div>
-                                <div class="col-md-12">
-                                    <label class="form-label fw-semibold">Apply For *</label>
-                                    <select class="form-select form-control" id="regTrack" required>
-                                        <option value="" disabled selected>Select a Program / Course</option>
-                                        <optgroup label="Training &amp; Courses">
-                                            <option value="course_web">Full Stack Web Development Course</option>
-                                            <option value="course_mobile">Mobile App Development Course</option>
-                                            <option value="course_cloud">Cloud Solutions &amp; DevOps Course</option>
-                                            <option value="course_uiux">UI/UX Design Masterclass</option>
-                                        </optgroup>
-                                        <optgroup label="Internship Opportunities">
-                                            <option value="intern_web">Web Development Internship</option>
-                                            <option value="intern_mobile">Mobile App Development Internship</option>
-                                            <option value="intern_uiux">UI/UX Design Internship</option>
-                                        </optgroup>
-                                        <optgroup label="Full-Time Roles">
-                                            <option value="job_frontend">Frontend Developer (React)</option>
-                                            <option value="job_backend">Backend Developer (Node/Express/Java)</option>
-                                            <option value="job_qa">QA Automation Engineer</option>
-                                            <option value="job_pm">Product/Project Manager</option>
-                                        </optgroup>
-                                    </select>
+                                <div class="step-divider"></div>
+                                <div class="wizard-step" id="wizardStepIndicator5">
+                                    <div class="step-num">5</div>
+                                    <div class="step-label d-none d-sm-block">Payment</div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-semibold">Password *</label>
-                                    <input type="password" class="form-control" id="regPassword" required placeholder="••••••••">
+                            </div>
+
+                            <!-- STEP 1: Student Information -->
+                            <div class="step-pane" id="stepPane1">
+                                <h5 class="fw-bold mb-3 text-primary"><i class="fa-solid fa-user me-2"></i>Student Information</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Full Name *</label>
+                                        <input type="text" class="form-control" id="regName" required placeholder="John Doe">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Username *</label>
+                                        <input type="text" class="form-control" id="regUsername" required placeholder="johndoe">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Email Address *</label>
+                                        <input type="email" class="form-control" id="regEmail" required placeholder="johndoe@example.com">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Phone Number *</label>
+                                        <input type="tel" class="form-control" id="regPhone" required placeholder="10-digit number">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-semibold">Profile Photo Upload *</label>
+                                        <input type="file" class="form-control" id="regProfilePhoto" accept="image/*" required>
+                                        <small class="text-muted">Upload a formal photo (JPG/PNG)</small>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-semibold">Confirm Password *</label>
-                                    <input type="password" class="form-control" id="regConfirmPassword" required placeholder="••••••••">
+                            </div>
+
+                            <!-- STEP 2: Academic Information -->
+                            <div class="step-pane d-none" id="stepPane2">
+                                <h5 class="fw-bold mb-3 text-success"><i class="fa-solid fa-graduation-cap me-2"></i>Academic Information</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-semibold">College Name *</label>
+                                        <input type="text" class="form-control" id="regCollegeName" placeholder="e.g. ABC Engineering College">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">University *</label>
+                                        <input type="text" class="form-control" id="regUniversity" placeholder="e.g. State University">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Branch / Department *</label>
+                                        <input type="text" class="form-control" id="regBranch" placeholder="e.g. Computer Science">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Year of Study *</label>
+                                        <select class="form-select form-control" id="regYearOfStudy">
+                                            <option value="" disabled selected>Select Year</option>
+                                            <option value="1st Year">1st Year</option>
+                                            <option value="2nd Year">2nd Year</option>
+                                            <option value="3rd Year">3rd Year</option>
+                                            <option value="4th Year">4th Year</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Roll Number *</label>
+                                        <input type="text" class="form-control" id="regRollNumber" placeholder="Academic Roll No.">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-semibold">CGPA (Optional)</label>
+                                        <input type="number" class="form-control" id="regCGPA" min="0" max="10" step="0.01" placeholder="e.g. 8.5">
+                                    </div>
                                 </div>
-                                <div class="col-md-12 mt-4">
-                                    <button type="submit" class="btn btn-primary btn-lg w-100 py-3 rounded-pill fw-semibold">Submit Application</button>
+                            </div>
+
+                            <!-- STEP 3: Skills, Course & Internship Selection -->
+                            <div class="step-pane d-none" id="stepPane3">
+                                <h5 class="fw-bold mb-3 text-warning"><i class="fa-solid fa-laptop-code me-2"></i>Skills & Course Selection</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-semibold d-block">Skills (Select all that apply)</label>
+                                        <div class="row g-2 px-2">
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="HTML" id="skillHTML">
+                                                <label class="form-check-label" for="skillHTML">HTML</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="CSS" id="skillCSS">
+                                                <label class="form-check-label" for="skillCSS">CSS</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="JavaScript" id="skillJS">
+                                                <label class="form-check-label" for="skillJS">JavaScript</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="React" id="skillReact">
+                                                <label class="form-check-label" for="skillReact">React</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="Node.js" id="skillNode">
+                                                <label class="form-check-label" for="skillNode">Node.js</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="Express.js" id="skillExpress">
+                                                <label class="form-check-label" for="skillExpress">Express.js</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="Java" id="skillJava">
+                                                <label class="form-check-label" for="skillJava">Java</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="Python" id="skillPython">
+                                                <label class="form-check-label" for="skillPython">Python</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="SQL" id="skillSQL">
+                                                <label class="form-check-label" for="skillSQL">SQL</label>
+                                            </div>
+                                            <div class="col-6 col-sm-4 form-check">
+                                                <input class="form-check-input text-primary" type="checkbox" name="skills" value="MongoDB" id="skillMongo">
+                                                <label class="form-check-label" for="skillMongo">MongoDB</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-semibold">Other Skills</label>
+                                        <input type="text" class="form-control" id="regOtherSkills" placeholder="e.g. Angular, AWS, Docker">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Course Selection</label>
+                                        <select class="form-select form-control" id="regCourseSelection">
+                                            <option value="" selected>None / Select Later</option>
+                                            <option value="Full Stack Web Development">Full Stack Web Development</option>
+                                            <option value="MERN Stack">MERN Stack</option>
+                                            <option value="Java Full Stack">Java Full Stack</option>
+                                            <option value="Python Full Stack">Python Full Stack</option>
+                                            <option value="UI/UX Design">UI/UX Design</option>
+                                            <option value="Flutter Development">Flutter Development</option>
+                                            <option value="AI & Machine Learning">AI & Machine Learning</option>
+                                            <option value="Data Science">Data Science</option>
+                                            <option value="Cloud Computing">Cloud Computing</option>
+                                            <option value="Cyber Security">Cyber Security</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Internship Domain</label>
+                                        <select class="form-select form-control" id="regInternshipSelection">
+                                            <option value="" selected>None / Apply Later</option>
+                                            <option value="Web Development">Web Development</option>
+                                            <option value="Frontend Development">Frontend Development</option>
+                                            <option value="Backend Development">Backend Development</option>
+                                            <option value="Full Stack Development">Full Stack Development</option>
+                                            <option value="Mobile App Development">Mobile App Development</option>
+                                            <option value="UI/UX Design">UI/UX Design</option>
+                                            <option value="AI/ML Internship">AI/ML Internship</option>
+                                            <option value="Data Science Internship">Data Science Internship</option>
+                                        </select>
+                                    </div>
                                 </div>
+                            </div>
+
+                            <!-- STEP 4: Documents Upload & Account Configuration -->
+                            <div class="step-pane d-none" id="stepPane4">
+                                <h5 class="fw-bold mb-3 text-info"><i class="fa-solid fa-lock me-2"></i>Documents & Account Settings</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Resume Upload (PDF) *</label>
+                                        <input type="file" class="form-control" id="regResume" accept=".pdf" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">ID Card Upload *</label>
+                                        <input type="file" class="form-control" id="regIdCard" accept="image/*,.pdf" required>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-semibold">Certificate Upload (Optional)</label>
+                                        <input type="file" class="form-control" id="regCertificate" accept="image/*,.pdf">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Password *</label>
+                                        <input type="password" class="form-control" id="regPassword" required placeholder="••••••••">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Confirm Password *</label>
+                                        <input type="password" class="form-control" id="regConfirmPassword" required placeholder="••••••••">
+                                    </div>
+                                    <div class="col-md-12 my-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="regAcceptTerms" required>
+                                            <label class="form-check-label text-muted" for="regAcceptTerms">
+                                                I accept the <a href="terms.html" target="_blank" class="text-primary text-decoration-none">Terms and Conditions</a> and <a href="privacy.html" target="_blank" class="text-primary text-decoration-none">Privacy Policy</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STEP 5: Secure Payment -->
+                            <div class="step-pane d-none" id="stepPane5">
+                                <h5 class="fw-bold mb-3 text-success"><i class="fa-solid fa-credit-card me-2"></i>Secure Payment</h5>
+                                <div class="bg-light p-3 rounded-3 mb-3 dark-light-bg">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted small">Applicant Name:</span>
+                                        <span class="fw-semibold small" id="pay-sum-name">-</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted small">Selected Program:</span>
+                                        <span class="fw-semibold small" id="pay-sum-track">-</span>
+                                    </div>
+                                    <hr class="my-2 text-muted">
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <h6 class="fw-bold mb-0 small">Total Amount:</h6>
+                                        <h5 class="fw-bold text-primary mb-0" id="pay-sum-fee">$49.00</h5>
+                                    </div>
+                                </div>
+
+                                <label class="form-label small fw-semibold">Select Payment Method *</label>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <button type="button" class="btn btn-outline-primary active btn-sm" id="pay-method-card" onclick="selectPayMethod('card')"><i class="fa-solid fa-credit-card me-1"></i>Credit/Debit Card</button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm" id="pay-method-upi" onclick="selectPayMethod('upi')"><i class="fa-solid fa-qrcode me-1"></i>UPI QR Code</button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm" id="pay-method-bank" onclick="selectPayMethod('bank')"><i class="fa-solid fa-building-columns me-1"></i>Bank Transfer</button>
+                                </div>
+
+                                <!-- Credit/Debit Card Fields -->
+                                <div class="payment-method-fields" id="pay-fields-card">
+                                    <div class="row g-2">
+                                        <div class="col-12">
+                                            <input type="text" class="form-control py-2" id="payCardName" placeholder="Cardholder Name">
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="text" class="form-control py-2" id="payCardNumber" placeholder="Card Number (4111 2222 3333 4444)">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" class="form-control py-2" id="payCardExpiry" placeholder="MM/YY">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="password" class="form-control py-2" id="payCardCVV" placeholder="CVV">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- UPI Fields -->
+                                <div class="payment-method-fields d-none text-center py-2" id="pay-fields-upi">
+                                    <p class="text-muted small mb-2">Scan the QR code below using GPay, PhonePe, or BHIM.</p>
+                                    <div class="bg-white p-2 rounded border d-inline-block shadow-sm mb-2">
+                                        <i class="fa-solid fa-qrcode text-dark" style="font-size: 80px;"></i>
+                                    </div>
+                                    <p class="text-success fw-bold small mb-0">Merchant: CodeNova Technologies</p>
+                                </div>
+
+                                <!-- Bank Transfer Fields -->
+                                <div class="payment-method-fields d-none" id="pay-fields-bank">
+                                    <div class="bg-light p-3 rounded-3 border dark-light-bg small text-start">
+                                        <p class="mb-1"><strong>Bank:</strong> CodeNova Federal Bank</p>
+                                        <p class="mb-1"><strong>Account Name:</strong> CodeNova Technologies</p>
+                                        <p class="mb-1"><strong>A/C No:</strong> 987654321098</p>
+                                        <p class="mb-1"><strong>IFSC Code:</strong> CNFB0009876</p>
+                                        <p class="mb-0"><strong>Branch:</strong> Silicon Valley Tech Park</p>
+                                    </div>
+                                    <p class="text-muted small mt-2 mb-0">Transfer the fee and click complete below to submit.</p>
+                                </div>
+                            </div>
+
+                            <!-- Navigation Buttons -->
+                            <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-3">
+                                <button type="button" class="btn btn-outline-secondary btn-lg px-4 rounded-pill d-none" id="btnPrev" onclick="prevStep()">Previous</button>
+                                <button type="button" class="btn btn-primary btn-lg px-4 rounded-pill ms-auto" id="btnNext" onclick="nextStep()">Next</button>
+                                <button type="submit" class="btn btn-success btn-lg px-4 rounded-pill d-none ms-auto" id="btnSubmit">Register & Pay</button>
                             </div>
                         </form>
 
@@ -356,6 +659,7 @@
     =========================================== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="js/theme.js"></script>
 
     <script>
@@ -395,50 +699,374 @@
             }
         }
 
-        // Handle Registration & Course Application
+        // Wizard steps tracking
+        let currentStep = 1;
+
+        function showStep(step) {
+            // Hide all steps
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('stepPane' + i).classList.add('d-none');
+                document.getElementById('wizardStepIndicator' + i).classList.remove('active', 'completed');
+                if (i < step) {
+                    document.getElementById('wizardStepIndicator' + i).classList.add('completed');
+                }
+            }
+            
+            // Show current step
+            document.getElementById('stepPane' + step).classList.remove('d-none');
+            document.getElementById('wizardStepIndicator' + step).classList.add('active');
+
+            // Button controls
+            const btnPrev = document.getElementById('btnPrev');
+            const btnNext = document.getElementById('btnNext');
+            const btnSubmit = document.getElementById('btnSubmit');
+
+            if (step === 1) {
+                btnPrev.classList.add('d-none');
+            } else {
+                btnPrev.classList.remove('d-none');
+            }
+
+            if (step === 5) {
+                btnNext.classList.add('d-none');
+                btnSubmit.classList.remove('d-none');
+            } else {
+                btnNext.classList.remove('d-none');
+                btnSubmit.classList.add('d-none');
+            }
+            
+            // Scroll to form header
+            document.querySelector('.auth-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function validateStep(step) {
+            const pane = document.getElementById('stepPane' + step);
+            const inputs = pane.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    input.classList.remove('is-invalid');
+                    if (input.type === 'email') {
+                        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailPattern.test(input.value)) {
+                            input.classList.add('is-invalid');
+                            isValid = false;
+                        }
+                    }
+                    if (input.id === 'regConfirmPassword') {
+                        const password = document.getElementById('regPassword').value;
+                        if (input.value !== password) {
+                            input.classList.add('is-invalid');
+                            isValid = false;
+                        }
+                    }
+                }
+            });
+            
+            return isValid;
+        }
+
+        function nextStep() {
+            if (validateStep(currentStep)) {
+                if (currentStep === 4) {
+                    // Pre-fill Step 5 payment details summary
+                    document.getElementById('pay-sum-name').textContent = document.getElementById('regName').value;
+                    const selectedCourse = document.getElementById('regCourseSelection').value;
+                    const selectedIntern = document.getElementById('regInternshipSelection').value;
+                    const selectedTrack = selectedCourse || selectedIntern || 'Web Development';
+                    document.getElementById('pay-sum-track').textContent = selectedTrack;
+                    
+                    const fee = selectedCourse !== "" ? "$199.00" : "$49.00";
+                    document.getElementById('pay-sum-fee').textContent = fee;
+                }
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                // Focus on first invalid input
+                const firstInvalid = document.getElementById('stepPane' + currentStep).querySelector('.is-invalid');
+                if (firstInvalid) firstInvalid.focus();
+            }
+        }
+
+        function prevStep() {
+            currentStep--;
+            showStep(currentStep);
+        }
+
+        // Select payment method handler
+        function selectPayMethod(method) {
+            // Remove active style from all payment buttons
+            document.getElementById('pay-method-card').classList.remove('active');
+            document.getElementById('pay-method-upi').classList.remove('active');
+            document.getElementById('pay-method-bank').classList.remove('active');
+            
+            // Add active style to selected method
+            document.getElementById('pay-method-' + method).classList.add('active');
+            
+            // Hide all subfields
+            document.getElementById('pay-fields-card').classList.add('d-none');
+            document.getElementById('pay-fields-upi').classList.add('d-none');
+            document.getElementById('pay-fields-bank').classList.add('d-none');
+            
+            // Show selected subfields
+            document.getElementById('pay-fields-' + method).classList.remove('d-none');
+        }
+
+        // Generate and download application confirmation & payment receipt PDF
+        function downloadApplicationReceiptPDF(user) {
+            const selectedCourse = document.getElementById('regCourseSelection').value;
+            const selectedIntern = document.getElementById('regInternshipSelection').value;
+            const selectedTrack = selectedCourse || selectedIntern || 'Web Development';
+            const fee = selectedCourse !== "" ? "$199.00" : "$49.00";
+            
+            // Get selected skills
+            const skillCheckboxes = document.querySelectorAll('input[name="skills"]:checked');
+            const selectedSkills = Array.from(skillCheckboxes).map(cb => cb.value).join(', ') || 'None';
+            const otherSkills = document.getElementById('regOtherSkills').value || 'None';
+            
+            // Get selected payment method
+            let payMethodText = 'Credit/Debit Card';
+            if (document.getElementById('pay-method-upi').classList.contains('active')) {
+                payMethodText = 'UPI QR Code';
+            } else if (document.getElementById('pay-method-bank').classList.contains('active')) {
+                payMethodText = 'Bank Transfer';
+            }
+
+            const element = document.createElement('div');
+            element.style.padding = '40px';
+            element.style.fontFamily = 'Arial, sans-serif';
+            element.style.color = '#333';
+            element.style.backgroundColor = '#fff';
+            element.style.lineHeight = '1.6';
+            
+            element.innerHTML = `
+                <div style="text-align: center; border-bottom: 2px solid #0d6efd; padding-bottom: 20px; margin-bottom: 30px;">
+                    <h1 style="color: #0d6efd; margin: 0; font-size: 28px; letter-spacing: 1px;">CODENOVA TECHNOLOGIES</h1>
+                    <p style="margin: 5px 0 0 0; color: #666; font-size: 14px; font-weight: 500;">Innovating Web, Mobile & Cloud Solutions</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h2 style="color: #333; border-bottom: 1px solid #eee; padding-bottom: 10px; font-size: 20px;">OFFICIAL REGISTRATION & PAYMENT RECEIPT</h2>
+                    <p style="font-size: 13px; color: #555; margin: 5px 0;"><strong>Date of Registration:</strong> ${new Date().toLocaleDateString()}</p>
+                    <p style="font-size: 13px; color: #555; margin: 5px 0;"><strong>Application ID:</strong> CN-REG-${Math.random().toString(36).substring(2, 7).toUpperCase()}</p>
+                    <p style="font-size: 13px; color: #198754; margin: 5px 0;"><strong>Payment Status:</strong> PAID (SUCCESSFUL)</p>
+                </div>
+                
+                <p style="font-size: 14px;">Dear <strong>${user.name || document.getElementById('regName').value}</strong>,</p>
+                
+                <p style="font-size: 14px;">We are pleased to confirm receipt of your application. All of your submitted registration records are successfully consolidated below:</p>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px;">
+                    <!-- Section 1: Student Information -->
+                    <tr style="background-color: #0d6efd; color: #fff;">
+                        <td colspan="2" style="padding: 8px 12px; font-weight: bold; font-size: 14px; border: 1px solid #ddd;">1. STUDENT INFORMATION</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold; width: 35%;">Full Name</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${user.name || document.getElementById('regName').value}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Username</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${user.username || document.getElementById('regUsername').value}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Email Address</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${user.email || document.getElementById('regEmail').value}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Phone Number</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${document.getElementById('regPhone').value || 'N/A'}</td>
+                    </tr>
+                    
+                    <!-- Section 2: Academic Information -->
+                    <tr style="background-color: #198754; color: #fff;">
+                        <td colspan="2" style="padding: 8px 12px; font-weight: bold; font-size: 14px; border: 1px solid #ddd; margin-top: 15px;">2. ACADEMIC CREDENTIALS</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">College Name</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${document.getElementById('regCollegeName').value || 'N/A'}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">University</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${document.getElementById('regUniversity').value || 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Branch / Dept</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${document.getElementById('regBranch').value || 'N/A'}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Year of Study</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${document.getElementById('regYearOfStudy').value || 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Roll Number</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${document.getElementById('regRollNumber').value || 'N/A'}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">CGPA</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${document.getElementById('regCGPA').value || 'N/A'}</td>
+                    </tr>
+
+                    <!-- Section 3: Programs & Skills -->
+                    <tr style="background-color: #fd7e14; color: #fff;">
+                        <td colspan="2" style="padding: 8px 12px; font-weight: bold; font-size: 14px; border: 1px solid #ddd;">3. PROGRAMS & SKILLS</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Applied Program / Track</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; color: #0d6efd; font-weight: bold;">${selectedTrack}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Core Skills</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${selectedSkills}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Other Skills</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${otherSkills}</td>
+                    </tr>
+
+                    <!-- Section 4: Checkout & Payments -->
+                    <tr style="background-color: #212529; color: #fff;">
+                        <td colspan="2" style="padding: 8px 12px; font-weight: bold; font-size: 14px; border: 1px solid #ddd;">4. PAYMENT INFORMATION</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Fee Amount</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold; color: #198754;">${fee}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 8px 12px; border: 1px solid #ddd; font-weight: bold;">Payment Method</td>
+                        <td style="padding: 8px 12px; border: 1px solid #ddd;">${payMethodText}</td>
+                    </tr>
+                </table>
+                
+                <p style="font-size: 13px; margin-top: 20px;">Please use your registered credentials to log in and access your student dashboard. A verification email will be dispatched to confirm your login state.</p>
+                
+                <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div>
+                        <p style="margin: 0; font-size: 11px; color: #999;">Reference Tx: Ref-TX-${Math.random().toString(36).substring(2, 10).toUpperCase()}</p>
+                        <p style="margin: 0; font-size: 10px; color: #aaa;">Authorized Digital Signature</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="border-bottom: 1px solid #333; width: 140px; margin: 0 auto 5px auto;"></div>
+                        <p style="margin: 0; font-size: 13px; font-weight: bold; color: #333;">Accounts & Registrars</p>
+                        <p style="margin: 0; font-size: 11px; color: #777;">CodeNova Technologies</p>
+                    </div>
+                </div>
+            `;
+            
+            const opt = {
+                margin:       15,
+                filename:     `CodeNova_Registration_Receipt_${(user.name || 'Student').replace(/\s+/g, '_')}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // Handle Registration & Course Application (Multipart FormData)
         async function handleRegister(event) {
             event.preventDefault();
             const alertBox = document.getElementById('authAlert');
             alertBox.className = 'alert d-none';
 
-            const name = document.getElementById('regName').value;
-            const username = document.getElementById('regUsername').value;
-            const email = document.getElementById('regEmail').value;
-            const phone = document.getElementById('regPhone').value;
-            const track = document.getElementById('regTrack').value;
-            const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            if (!validateStep(5)) {
+                return;
+            }
 
-            if (password !== confirmPassword) {
+            const acceptTerms = document.getElementById('regAcceptTerms').checked;
+            if (!acceptTerms) {
                 alertBox.className = 'alert alert-danger';
-                alertBox.textContent = 'Passwords do not match.';
+                alertBox.textContent = 'You must accept the Terms and Conditions.';
                 alertBox.classList.remove('d-none');
                 return;
             }
 
+            // Construct FormData (essential for file uploads)
+            const form = document.getElementById('formRegister');
+            const formData = new FormData();
+
+            // Student Info
+            formData.append('name', document.getElementById('regName').value);
+            formData.append('username', document.getElementById('regUsername').value);
+            formData.append('email', document.getElementById('regEmail').value);
+            formData.append('phone', document.getElementById('regPhone').value);
+            
+            const profilePhoto = document.getElementById('regProfilePhoto').files[0];
+            if (profilePhoto) formData.append('profilePhoto', profilePhoto);
+
+            // Academic Info
+            formData.append('collegeName', document.getElementById('regCollegeName').value);
+            formData.append('university', document.getElementById('regUniversity').value);
+            formData.append('branch', document.getElementById('regBranch').value);
+            formData.append('yearOfStudy', document.getElementById('regYearOfStudy').value);
+            formData.append('rollNumber', document.getElementById('regRollNumber').value);
+            formData.append('cgpa', document.getElementById('regCGPA').value);
+
+            // Skills & Course Selection
+            const skillCheckboxes = document.querySelectorAll('input[name="skills"]:checked');
+            const selectedSkills = Array.from(skillCheckboxes).map(cb => cb.value);
+            formData.append('skills', JSON.stringify(selectedSkills));
+            formData.append('otherSkills', document.getElementById('regOtherSkills').value);
+            formData.append('courseSelection', document.getElementById('regCourseSelection').value);
+            formData.append('internshipSelection', document.getElementById('regInternshipSelection').value);
+
+            // Documents
+            const resumeFile = document.getElementById('regResume').files[0];
+            if (resumeFile) formData.append('resume', resumeFile);
+            
+            const idCardFile = document.getElementById('regIdCard').files[0];
+            if (idCardFile) formData.append('idCard', idCardFile);
+
+            const certFile = document.getElementById('regCertificate').files[0];
+            if (certFile) formData.append('certificate', certFile);
+
+            // Account
+            formData.append('password', document.getElementById('regPassword').value);
+
             const apiBase = window.location.origin.startsWith('file') ? 'http://localhost:5000' : '';
+            
             try {
+                // Set loading status
+                const btnSubmit = document.getElementById('btnSubmit');
+                const prevHtml = btnSubmit.innerHTML;
+                btnSubmit.disabled = true;
+                btnSubmit.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing Payment...';
+
                 const response = await fetch(apiBase + '/api/auth/register', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, username, email, password, phone, track })
+                    body: formData // Content-Type header is omitted so boundary is automatically set by browser
                 });
-                
+
                 const result = await response.json();
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = prevHtml;
+
                 if (result.success) {
+                    // Auto download payment receipt PDF
+                    downloadApplicationReceiptPDF(result.data.user || {});
+
                     alertBox.className = 'alert alert-success';
-                    alertBox.textContent = 'Application Submitted Successfully! Directing you to Sign In...';
+                    alertBox.textContent = 'Registration & Payment Successful! PDF receipt downloaded. Redirecting you to Login...';
                     alertBox.classList.remove('d-none');
-                    document.getElementById('formRegister').reset();
+                    form.reset();
+                    currentStep = 1;
+                    showStep(1);
                     setTimeout(() => {
                         switchTab('login');
-                    }, 2000);
+                    }, 3500);
                 } else {
                     alertBox.className = 'alert alert-danger';
                     alertBox.textContent = result.message || 'Registration failed.';
                     alertBox.classList.remove('d-none');
                 }
             } catch (err) {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = prevHtml;
                 alertBox.className = 'alert alert-danger';
                 alertBox.textContent = 'Failed to connect to authentication server.';
                 alertBox.classList.remove('d-none');
@@ -468,7 +1096,14 @@
                     alertBox.textContent = 'Login Successful! Accessing dashboard...';
                     alertBox.classList.remove('d-none');
                     document.getElementById('formLogin').reset();
-                    // Redirect logic can go here (e.g. window.location.href = '/dashboard')
+                    
+                    // Save JWT token and user info
+                    localStorage.setItem('token', result.data.token);
+                    localStorage.setItem('user', JSON.stringify(result.data.user));
+                    
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1500);
                 } else {
                     alertBox.className = 'alert alert-danger';
                     alertBox.textContent = result.message || 'Login failed.';

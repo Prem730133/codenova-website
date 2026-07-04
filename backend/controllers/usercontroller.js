@@ -80,6 +80,14 @@ exports.getUsers = async (
 ) => {
 
     try{
+        const mongoose = require("mongoose");
+        if (mongoose.connection.readyState !== 1) {
+            global.mockUsers = global.mockUsers || [];
+            return successResponse(res, 200, "Users fetched successfully (Mock Store).", {
+                total: global.mockUsers.length,
+                users: global.mockUsers
+            });
+        }
 
         const users =
 

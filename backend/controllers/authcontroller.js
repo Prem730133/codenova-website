@@ -103,10 +103,44 @@ exports.register = async (
 ) => {
 
     try{
+        const {
+            name,
+            username,
+            email,
+            password,
+            phone,
+            collegeName,
+            university,
+            branch,
+            yearOfStudy,
+            rollNumber,
+            cgpa,
+            skills,
+            otherSkills,
+            courseSelection,
+            internshipSelection
+        } = req.body;
+
+        const profilePhoto = req.files && req.files.profilePhoto ? `/uploads/${req.files.profilePhoto[0].filename}` : "";
+        const resume = req.files && req.files.resume ? `/uploads/${req.files.resume[0].filename}` : "";
+        const idCard = req.files && req.files.idCard ? `/uploads/${req.files.idCard[0].filename}` : "";
+        const certificate = req.files && req.files.certificate ? `/uploads/${req.files.certificate[0].filename}` : "";
+
+        let parsedSkills = [];
+        if (skills) {
+            if (typeof skills === "string") {
+                try {
+                    parsedSkills = JSON.parse(skills);
+                } catch (e) {
+                    parsedSkills = skills.split(",").map(s => s.trim());
+                }
+            } else if (Array.isArray(skills)) {
+                parsedSkills = skills;
+            }
+        }
 
         if (mongoose.connection.readyState !== 1) {
             console.log("[DB Offline] Handling registration using in-memory mock store...");
-            const { name, username, email, password, phone } = req.body;
             if (!name || !username || !email || !password) {
                 return errorResponse(res, 400, "Please fill all required fields.");
             }
@@ -124,7 +158,15 @@ exports.register = async (
                 email,
                 phone,
                 password: hashedPassword,
-                isVerified: true
+                profilePhoto,
+                academicInfo: { collegeName, university, branch, yearOfStudy, rollNumber, cgpa },
+                skills: parsedSkills,
+                otherSkills,
+                courseSelection,
+                internshipSelection,
+                documents: { resume, idCard, certificate },
+                isVerified: true,
+                role: (username.toLowerCase().includes("admin") || email.toLowerCase().includes("admin")) ? "admin" : "user"
             };
             global.mockUsers.push(mockUser);
             const token = generateToken(mockUser._id);
@@ -138,20 +180,6 @@ exports.register = async (
                 }
             });
         }
-
-        const {
-
-            name,
-
-            username,
-
-            email,
-
-            password,
-
-            phone
-
-        } = req.body;
 
         /*==============================
           Required Fields
@@ -262,6 +290,42 @@ exports.register = async (
                 password:
 
                     hashedPassword,
+
+                profilePhoto,
+
+                academicInfo: {
+
+                    collegeName,
+
+                    university,
+
+                    branch,
+
+                    yearOfStudy,
+
+                    rollNumber,
+
+                    cgpa
+
+                },
+
+                skills: parsedSkills,
+
+                otherSkills,
+
+                courseSelection,
+
+                internshipSelection,
+
+                documents: {
+
+                    resume,
+
+                    idCard,
+
+                    certificate
+
+                },
 
                 verifyToken,
 

@@ -233,6 +233,12 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link text-primary fw-semibold" href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Actions -->
@@ -258,9 +264,18 @@
 
                         <!-- Get a Quote -->
                         <a href="contact.html"
-                            class="btn btn-primary rounded-pill px-4">
+                            class="btn btn-outline-primary rounded-pill px-4">
 
                             Get a Quote
+
+                        </a>
+
+                        <!-- Portal / Dashboard Button -->
+                        <a href="dashboard.html"
+                            class="btn btn-primary rounded-pill px-4 ms-2"
+                            id="portalBtn">
+
+                            Portal
 
                         </a>
 
@@ -1753,100 +1768,104 @@
 <!-- Testimonials Section End -->
 
 
-        <!-- ==========================================
-             Pricing Preview Section
-        =========================================== -->
+       <!-- ==========================================
+     PART 3A.1 : Pricing Section
+========================================== -->
+<section id="pricing" class="pricing section-padding">
+    <div class="container">
 
-        <div class="row mb-5">
+        <div class="section-header text-center">
+            <span class="section-subtitle">Pricing Plans</span>
+            <h2>Choose the Perfect Plan</h2>
+            <p>
+                Flexible pricing packages designed for startups,
+                small businesses, and enterprises.
+            </p>
+        </div>
 
-            <div class="col-lg-8 mx-auto text-center"
-                 data-aos="fade-up">
+        <div class="pricing-grid">
 
-                <span class="badge bg-primary px-3 py-2 mb-3">
-                    Pricing Plans
+            <!-- Starter Plan -->
+            <div class="pricing-card">
+
+                <div class="plan-header">
+                    <h3>Starter</h3>
+                    <span class="price">₹9,999</span>
+                    <p>One Time Project</p>
+                </div>
+
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Responsive Website</li>
+                    <li><i class="fas fa-check"></i> 5 Pages</li>
+                    <li><i class="fas fa-check"></i> Contact Form</li>
+                    <li><i class="fas fa-check"></i> SEO Friendly</li>
+                    <li><i class="fas fa-check"></i> Free SSL</li>
+                    <li><i class="fas fa-check"></i> Email Support</li>
+                </ul>
+
+                <a href="contact.html" class="btn btn-primary">
+                    Get Started
+                </a>
+
+            </div>
+
+            <!-- Professional Plan -->
+            <div class="pricing-card featured">
+
+                <span class="badge">
+                    Most Popular
                 </span>
 
-                <h2 class="display-5 fw-bold mb-3">
-                    Flexible Pricing for Every Business
-                </h2>
+                <div class="plan-header">
+                    <h3>Professional</h3>
+                    <span class="price">₹24,999</span>
+                    <p>Best for Businesses</p>
+                </div>
 
-                <p class="text-muted">
-                    Choose a pricing plan that fits your business needs.
-                    Whether you're a startup or an enterprise, we provide
-                    affordable, scalable, and feature-rich software
-                    development solutions.
-                </p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> 15+ Pages</li>
+                    <li><i class="fas fa-check"></i> Admin Dashboard</li>
+                    <li><i class="fas fa-check"></i> Database</li>
+                    <li><i class="fas fa-check"></i> API Integration</li>
+                    <li><i class="fas fa-check"></i> Authentication</li>
+                    <li><i class="fas fa-check"></i> 24/7 Support</li>
+                </ul>
+
+                <a href="pricing.html" class="btn btn-primary">
+                    Choose Plan
+                </a>
+
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+
+                <div class="plan-header">
+                    <h3>Enterprise</h3>
+                    <span class="price">Custom</span>
+                    <p>Large Organizations</p>
+                </div>
+
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Unlimited Pages</li>
+                    <li><i class="fas fa-check"></i> Cloud Deployment</li>
+                    <li><i class="fas fa-check"></i> Custom Software</li>
+                    <li><i class="fas fa-check"></i> Mobile App</li>
+                    <li><i class="fas fa-check"></i> AI Integration</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                </ul>
+
+                <a href="contact.html" class="btn btn-dark">
+                    Contact Sales
+                </a>
 
             </div>
 
         </div>
 
-        <div class="row g-4">
+    </div>
+</section>
 
-            <!-- Starter Plan -->
-            <div class="col-lg-4 col-md-6"
-                 data-aos="fade-up">
-
-                <div class="card border-0 shadow-sm h-100 text-center p-5">
-
-                    <span class="badge bg-success mb-3">
-                        Starter
-                    </span>
-
-                    <h3 class="fw-bold mb-3">
-                        ₹9,999
-                    </h3>
-
-                    <p class="text-muted mb-4">
-                        Perfect for startups and small businesses looking
-                        for a professional online presence.
-                    </p>
-
-                    <ul class="list-unstyled text-start mb-4">
-
-                        <li class="mb-2">
-                            <i class="fa-solid fa-check text-success me-2"></i>
-                            Responsive Website
-                        </li>
-
-                        <li class="mb-2">
-                            <i class="fa-solid fa-check text-success me-2"></i>
-                            Up to 5 Pages
-                        </li>
-
-                        <li class="mb-2">
-                            <i class="fa-solid fa-check text-success me-2"></i>
-                            Contact Form
-                        </li>
-
-                        <li>
-                            <i class="fa-solid fa-check text-success me-2"></i>
-                            Free Technical Support
-                        </li>
-
-                    </ul>
-
-                    <a href="contact.html"
-                       class="btn btn-success w-100">
-
-                        Get Started
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            <!-- Professional Plan -->
-            <div class="col-lg-4 col-md-6"
-                 data-aos="fade-up"
-                 data-aos-delay="100">
-
-                <div class="card border-primary shadow-lg h-100 text-center p-5">
-
-                    <span class="badge bg-primary mb-3">
-                        Most Popular
-                    </span>
         <!-- ==========================================
              Latest Blog Section
         =========================================== -->
@@ -2710,6 +2729,12 @@
                 offset: 120,
                 easing: "ease-in-out"
             });
+
+            // Dynamic Portal button text check
+            const portalBtn = document.getElementById('portalBtn');
+            if (portalBtn && localStorage.getItem('token')) {
+                portalBtn.textContent = 'Dashboard';
+            }
 
         </script>
 
