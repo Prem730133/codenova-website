@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Dashboard | CodeNova Technologies</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logos/favicon.svg">
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/darkmode.css">
+
+    <style>
+        :root {
+            --sidebar-width: 260px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .dark-mode body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        /* Sidebar Styling */
+        #sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: #ffffff;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dark-mode #sidebar {
+            background: #1e293b;
+            border-right-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode .sidebar-header {
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 24px 12px;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .menu-item a {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            color: #64748b;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .menu-item a {
+            color: #94a3b8;
+        }
+
+        .menu-item.active a,
+        .menu-item a:hover {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: var(--primary);
+        }
+
+        .menu-item a i {
+            width: 24px;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+
+        /* Content Area */
+        #content-wrapper {
+            margin-left: var(--sidebar-width);
+            padding: 30px;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 991.98px) {
+            #sidebar {
+                left: calc(-1 * var(--sidebar-width));
+            }
+            #sidebar.active {
+                left: 0;
+            }
+            #content-wrapper {
+                margin-left: 0;
+            }
+        }
+
+        /* Glassmorphic Card Styling */
+        .dashboard-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dark-mode .dashboard-card {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        /* Tables */
+        .table-responsive {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode .table-responsive {
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
+        .table th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode .table th {
+            background-color: #1e293b;
+            color: #f8fafc;
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .table td {
+            padding: 14px 16px;
+            vertical-align: middle;
+        }
+
+        /* Modals */
+        .modal-content {
+            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .modal-content {
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.05);
+            color: #f8fafc;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8fafc;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .dark-mode #preloader {
+            background: #0f172a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="text-center">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <h5 class="fw-bold mt-3">Loading Dashboard...</h5>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <div class="sidebar-header d-flex align-items-center justify-content-between">
+            <a class="navbar-brand d-flex align-items-center text-decoration-none" href="index.html">
+                <img src="images/logos/logo.svg" alt="CodeNova Logo" width="40" class="me-2">
+                <div>
+                    <h5 class="fw-bold text-primary mb-0">CodeNova</h5>
+                    <small class="text-muted">Technologies</small>
+                </div>
+            </a>
+            <button class="btn btn-link text-dark d-lg-none" onclick="toggleSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li class="menu-item active" id="menu-dash">
+                <a href="#" onclick="switchView('dash')">
+                    <i class="fa-solid fa-chart-line"></i>Dashboard
+                </a>
+            </li>
+            <li class="menu-item admin-only d-none" id="menu-students">
+                <a href="#" onclick="switchView('students')">
+                    <i class="fa-solid fa-graduation-cap"></i>Students List
+                </a>
+            </li>
+            <li class="menu-item admin-only d-none" id="menu-inquiries">
+                <a href="#" onclick="switchView('inquiries')">
+                    <i class="fa-solid fa-envelope-open-text"></i>Inquiries
+                </a>
+            </li>
+            <li class="menu-item" id="menu-profile">
+                <a href="#" onclick="switchView('profile')">
+                    <i class="fa-solid fa-user-gear"></i>My Profile
+                </a>
+            </li>
+            <li class="menu-item admin-only d-none" id="menu-system">
+                <a href="#" onclick="switchView('system')">
+                    <i class="fa-solid fa-server"></i>System Health
+                </a>
+            </li>
+        </ul>
+
+        <div class="p-3 border-top d-flex justify-content-between align-items-center">
+            <button class="btn btn-link text-muted p-0" id="themeToggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon fs-5"></i>
+            </button>
+            <button class="btn btn-outline-danger btn-sm rounded-pill px-3" onclick="handleLogout()">
+                <i class="fa-solid fa-right-from-bracket me-1"></i>Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="content-wrapper">
+        
+        <!-- Top Navbar -->
+        <header class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+            <div class="d-flex align-items-center">
+                <button class="btn btn-link text-dark d-lg-none me-3 p-0" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars fs-4"></i>
+                </button>
+                <h3 class="fw-bold mb-0" id="view-title">Dashboard Overview</h3>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="text-end me-3 d-none d-sm-block">
+                    <h6 class="fw-bold mb-0" id="header-user-name">Welcome Back</h6>
+                    <small class="text-muted" id="header-user-role">Role: Loading...</small>
+                </div>
+                <img src="images/team/placeholder.png" alt="Profile" id="header-user-avatar" class="rounded-circle" width="40" height="40" style="object-fit: cover; border: 2px solid var(--primary);">
+            </div>
+        </header>
+
+        <!-- Dynamic Content Sections -->
+        <div id="alertContainer"></div>
+
+        <!-- 1. DASHBOARD OVERVIEW PANELS -->
+        <section id="view-section-dash">
+            <!-- Admin Stats Grid -->
+            <div class="row g-4 mb-4 admin-only d-none">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="dashboard-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted fw-semibold">Total Students</span>
+                            <h3 class="fw-bold mt-1 mb-0" id="stat-total-students">0</h3>
+                        </div>
+                        <div class="stat-icon bg-primary text-white">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="dashboard-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted fw-semibold">Total Inquiries</span>
+                            <h3 class="fw-bold mt-1 mb-0" id="stat-total-inquiries">0</h3>
+                        </div>
+                        <div class="stat-icon bg-success text-white">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="dashboard-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted fw-semibold">Active Services</span>
+                            <h3 class="fw-bold mt-1 mb-0" id="stat-active-services">0</h3>
+                        </div>
+                        <div class="stat-icon bg-warning text-white">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="dashboard-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted fw-semibold">System Health</span>
+                            <h3 class="fw-bold mt-1 mb-0" id="stat-system-health">100%</h3>
+                        </div>
+                        <div class="stat-icon bg-info text-white">
+                            <i class="fa-solid fa-heartpulse"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Welcome Banner -->
+            <div class="student-only d-none mb-4">
+                <div class="card bg-primary text-white border-0 rounded-4 p-4 shadow">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h2 class="fw-bold mb-2">Welcome to CodeNova Learning Portal!</h2>
+                            <p class="lead mb-0">Track your registration status, internship tracks, and view academic documents here.</p>
+                            <button class="btn btn-light text-primary rounded-pill fw-bold px-4 mt-3" onclick="downloadApplicationPDF()">
+                                <i class="fa-solid fa-file-pdf me-2"></i>Download Internship Receipt (PDF)
+                            </button>
+                        </div>
+                        <div class="col-md-4 text-end d-none d-md-block">
+                            <i class="fa-solid fa-laptop-code display-1 opacity-25"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activities / Status -->
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="dashboard-card h-100">
+                        <h5 class="fw-bold mb-4">Recent Activities & Alerts</h5>
+                        <ul class="list-group list-group-flush" id="recent-activities-list">
+                            <li class="list-group-item bg-transparent text-muted py-3">No recent activities available.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="dashboard-card h-100">
+                        <h5 class="fw-bold mb-4">Application Details</h5>
+                        <div id="student-track-summary" class="text-center py-4">
+                            <i class="fa-solid fa-shield-halved text-success display-4 mb-3"></i>
+                            <h6 class="fw-bold">Security Clearance Level</h6>
+                            <p class="text-muted small">You are logged in as Administrator. All admin dashboard panels are unlocked.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. STUDENTS LIST PANEL (ADMIN ONLY) -->
+        <section id="view-section-students" class="d-none">
+            <div class="dashboard-card">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h5 class="fw-bold mb-0">Registered Student Registrants</h5>
+                    <button class="btn btn-primary btn-sm rounded-pill px-3" onclick="loadStudents()"><i class="fa-solid fa-arrows-rotate me-1"></i>Refresh</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover mb-0" id="students-table">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Branch</th>
+                                <th>Course Selection</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="students-table-body">
+                            <!-- Student rows rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CONTACT INQUIRIES PANEL (ADMIN ONLY) -->
+        <section id="view-section-inquiries" class="d-none">
+            <div class="dashboard-card">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h5 class="fw-bold mb-0">Contact Forms / Inquiries</h5>
+                    <button class="btn btn-primary btn-sm rounded-pill px-3" onclick="loadInquiries()"><i class="fa-solid fa-arrows-rotate me-1"></i>Refresh</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover mb-0" id="inquiries-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiries-table-body">
+                            <!-- Inquiry rows rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PROFILE PANEL -->
+        <section id="view-section-profile" class="d-none">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="dashboard-card text-center">
+                        <img src="images/team/placeholder.png" alt="Profile" id="profile-card-avatar" class="rounded-circle mb-3" width="120" height="120" style="object-fit: cover; border: 4px solid var(--primary);">
+                        <h5 class="fw-bold mb-1" id="profile-card-name">Student Name</h5>
+                        <p class="text-muted small mb-3" id="profile-card-role">Student Account</p>
+                        <div class="border-top pt-3">
+                            <span class="fw-semibold small d-block mb-1">Registration Date:</span>
+                            <span class="text-muted small" id="profile-card-date">Pending</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="dashboard-card">
+                        <h5 class="fw-bold mb-4">Profile Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Full Name</label>
+                                <span class="fw-medium" id="profile-detail-name">Loading...</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Username</label>
+                                <span class="fw-medium" id="profile-detail-username">Loading...</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Email Address</label>
+                                <span class="fw-medium" id="profile-detail-email">Loading...</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Phone Number</label>
+                                <span class="fw-medium" id="profile-detail-phone">Loading...</span>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4 mb-4 academic-view">Academic Details</h5>
+                        <div class="row g-3 academic-view">
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">College Name</label>
+                                <span class="fw-medium" id="profile-detail-college">Loading...</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">University</label>
+                                <span class="fw-medium" id="profile-detail-university">Loading...</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Branch / Department</label>
+                                <span class="fw-medium" id="profile-detail-branch">Loading...</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Year of Study</label>
+                                <span class="fw-medium" id="profile-detail-year">Loading...</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Roll Number</label>
+                                <span class="fw-medium" id="profile-detail-roll">Loading...</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">CGPA</label>
+                                <span class="fw-medium" id="profile-detail-cgpa">Loading...</span>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4 mb-4 tracks-view">Enrolled Programs & Skills</h5>
+                        <div class="row g-3 tracks-view">
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Course Selection</label>
+                                <span class="badge bg-primary fs-6" id="profile-detail-course">None</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold small text-muted d-block">Internship Domain</label>
+                                <span class="badge bg-success fs-6" id="profile-detail-internship">None</span>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="fw-semibold small text-muted d-block">Selected Skills</label>
+                                <div id="profile-detail-skills" class="mt-1 d-flex flex-wrap gap-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SYSTEM HEALTH PANEL (ADMIN ONLY) -->
+        <section id="view-section-system" class="d-none">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <h5 class="fw-bold mb-4">System Information</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent d-flex justify-content-between px-0">
+                                <span class="fw-semibold">System Status</span>
+                                <span class="text-success fw-bold"><i class="fa-solid fa-circle-check me-1"></i>Healthy</span>
+                            </li>
+                            <li class="list-group-item bg-transparent d-flex justify-content-between px-0">
+                                <span class="fw-semibold">Node Version</span>
+                                <span id="sys-node-ver" class="text-muted">v22.19.0</span>
+                            </li>
+                            <li class="list-group-item bg-transparent d-flex justify-content-between px-0">
+                                <span class="fw-semibold">System Uptime</span>
+                                <span id="sys-uptime" class="text-muted">0s</span>
+                            </li>
+                            <li class="list-group-item bg-transparent d-flex justify-content-between px-0">
+                                <span class="fw-semibold">Environment</span>
+                                <span class="badge bg-info">development</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <h5 class="fw-bold mb-4">Memory Allocation</h5>
+                        <div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-semibold small">RSS (Resident Set Size)</span>
+                                <span id="mem-rss" class="small text-muted">0 MB</span>
+                            </div>
+                            <div class="progress mb-3" style="height: 8px;">
+                                <div id="bar-rss" class="progress-bar bg-primary" role="progressbar" style="width: 10%"></div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-semibold small">Heap Total</span>
+                                <span id="mem-heap-total" class="small text-muted">0 MB</span>
+                            </div>
+                            <div class="progress mb-3" style="height: 8px;">
+                                <div id="bar-heap-total" class="progress-bar bg-warning" role="progressbar" style="width: 20%"></div>
+                            </div>
+
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-semibold small">Heap Used</span>
+                                <span id="mem-heap-used" class="small text-muted">0 MB</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="bar-heap-used" class="progress-bar bg-danger" role="progressbar" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Student Detail View Modal -->
+    <div class="modal fade" id="studentDetailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content shadow-lg border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="detailModalLabel"><i class="fa-solid fa-graduation-cap text-primary me-2"></i>Student Registration Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-3 text-center text-md-start">
+                            <img src="images/team/placeholder.png" alt="Profile" id="modal-profile-photo" class="rounded-4 mb-3 mb-md-0" width="120" height="120" style="object-fit: cover; border: 3px solid var(--primary);">
+                        </div>
+                        <div class="col-md-9">
+                            <h4 class="fw-bold mb-1" id="modal-full-name">Name</h4>
+                            <p class="text-muted mb-2"><i class="fa-solid fa-user me-2"></i>Username: <span id="modal-username" class="fw-semibold">Username</span></p>
+                            <p class="text-muted mb-2"><i class="fa-solid fa-envelope me-2"></i>Email: <span id="modal-email">Email</span></p>
+                            <p class="text-muted mb-0"><i class="fa-solid fa-phone me-2"></i>Phone: <span id="modal-phone">Phone</span></p>
+                        </div>
+                    </div>
+
+                    <div class="border-top pt-3">
+                        <h6 class="fw-bold text-success mb-3"><i class="fa-solid fa-university me-2"></i>Academic Details</h6>
+                        <div class="row g-3">
+                            <div class="col-6 col-md-4">
+                                <span class="small text-muted d-block">College Name</span>
+                                <span id="modal-college" class="fw-medium">College</span>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span class="small text-muted d-block">University</span>
+                                <span id="modal-university" class="fw-medium">University</span>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span class="small text-muted d-block">Branch / Dept</span>
+                                <span id="modal-branch" class="fw-medium">Branch</span>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span class="small text-muted d-block">Year of Study</span>
+                                <span id="modal-year" class="fw-medium">Year</span>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span class="small text-muted d-block">Roll Number</span>
+                                <span id="modal-roll" class="fw-medium">Roll</span>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <span class="small text-muted d-block">CGPA</span>
+                                <span id="modal-cgpa" class="fw-medium">CGPA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-top pt-3 mt-4">
+                        <h6 class="fw-bold text-warning mb-3"><i class="fa-solid fa-laptop-code me-2"></i>Selected Tracks & Skills</h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <span class="small text-muted d-block">Course Selected</span>
+                                <span id="modal-course" class="badge bg-primary mt-1 fs-6">None</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="small text-muted d-block">Internship Domain</span>
+                                <span id="modal-internship" class="badge bg-success mt-1 fs-6">None</span>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="small text-muted d-block">Skills Profile</span>
+                                <div id="modal-skills" class="mt-2 d-flex flex-wrap gap-2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-top pt-3 mt-4">
+                        <h6 class="fw-bold text-info mb-3"><i class="fa-solid fa-file-pdf me-2"></i>Uploaded Documents</h6>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#" id="modal-doc-resume" target="_blank" class="btn btn-outline-info btn-sm rounded-pill px-3"><i class="fa-solid fa-file-pdf me-1"></i>View Resume PDF</a>
+                            <a href="#" id="modal-doc-id" target="_blank" class="btn btn-outline-info btn-sm rounded-pill px-3"><i class="fa-solid fa-id-card me-1"></i>View College ID Card</a>
+                            <a href="#" id="modal-doc-cert" target="_blank" class="btn btn-outline-info btn-sm rounded-pill px-3"><i class="fa-solid fa-award me-1"></i>View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- html2pdf Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="js/theme.js"></script>
+
+    <script>
+        let apiBase = window.location.origin.startsWith('file') ? 'http://localhost:5000' : '';
+        let currentUser = null;
+
+        // Session validation on load
+        window.addEventListener('load', async () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'register.html';
+                return;
+            }
+
+            try {
+                // Fetch profile to confirm authentication & role
+                const response = await fetch(apiBase + '/api/auth/profile', {
+                    method: 'GET',
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                
+                const result = await response.json();
+                if (result.success) {
+                    currentUser = result.data;
+                    setupDashboard(currentUser);
+                } else {
+                    localStorage.removeItem('token');
+                    window.location.href = 'register.html';
+                }
+            } catch (err) {
+                console.error(err);
+                // offline mock mode fallback
+                const storedUser = localStorage.getItem('user');
+                if (storedUser) {
+                    currentUser = JSON.parse(storedUser);
+                    // Determine role dynamically based on username/email
+                    if (!currentUser.role) {
+                        currentUser.role = (currentUser.username.toLowerCase().includes("admin") || currentUser.email.toLowerCase().includes("admin")) ? "admin" : "user";
+                    }
+                    setupDashboard(currentUser);
+                } else {
+                    localStorage.removeItem('token');
+                    window.location.href = 'register.html';
+                }
+            } finally {
+                // Hide preloader
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.style.display = 'none', 300);
+                }
+            }
+        });
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Setup views based on roles
+        function setupDashboard(user) {
+            document.getElementById('header-user-name').textContent = user.name || user.username;
+            document.getElementById('header-user-role').textContent = 'Role: ' + (user.role === 'admin' ? 'Administrator' : 'Student Registrant');
+            
+            if (user.profilePhoto) {
+                document.getElementById('header-user-avatar').src = apiBase + user.profilePhoto;
+                document.getElementById('profile-card-avatar').src = apiBase + user.profilePhoto;
+            }
+
+            if (user.role === 'admin') {
+                // Show admin components
+                document.querySelectorAll('.admin-only').forEach(el => el.classList.remove('d-none'));
+                loadAdminDashboardData();
+            } else {
+                // Show student components
+                document.querySelectorAll('.student-only').forEach(el => el.classList.remove('d-none'));
+                setupStudentProfile(user);
+            }
+        }
+
+        function switchView(view) {
+            // Update active menu tab
+            document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
+            document.getElementById('menu-' + view).classList.add('active');
+
+            // Toggle view containers
+            const views = ['dash', 'students', 'inquiries', 'profile', 'system'];
+            views.forEach(v => {
+                const el = document.getElementById('view-section-' + v);
+                if (el) {
+                    if (v === view) {
+                        el.classList.remove('d-none');
+                    } else {
+                        el.classList.add('d-none');
+                    }
+                }
+            });
+
+            // Set title
+            const titles = {
+                'dash': 'Dashboard Overview',
+                'students': 'Students Registry',
+                'inquiries': 'Contact Inquiries',
+                'profile': 'My Learning Profile',
+                'system': 'System Health status'
+            };
+            document.getElementById('view-title').textContent = titles[view];
+            
+            // Auto close mobile sidebar
+            if (window.innerWidth < 992) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+
+            // Lazy load tab data
+            if (view === 'students') loadStudents();
+            if (view === 'inquiries') loadInquiries();
+            if (view === 'system') loadSystemHealth();
+            if (view === 'profile' && currentUser) setupStudentProfile(currentUser);
+        }
+
+        // Student portal layout helper
+        function setupStudentProfile(user) {
+            document.getElementById('profile-card-name').textContent = user.name;
+            document.getElementById('profile-card-role').textContent = user.role === 'admin' ? 'Administrator Account' : 'Student Account';
+            document.getElementById('profile-card-date').textContent = user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A';
+            
+            document.getElementById('profile-detail-name').textContent = user.name || 'N/A';
+            document.getElementById('profile-detail-username').textContent = user.username || 'N/A';
+            document.getElementById('profile-detail-email').textContent = user.email || 'N/A';
+            document.getElementById('profile-detail-phone').textContent = user.phone || 'N/A';
+
+            if (user.role === 'admin') {
+                document.querySelectorAll('.academic-view, .tracks-view').forEach(el => el.classList.add('d-none'));
+                return;
+            }
+
+            document.querySelectorAll('.academic-view, .tracks-view').forEach(el => el.classList.remove('d-none'));
+            const academic = user.academicInfo || {};
+            document.getElementById('profile-detail-college').textContent = academic.collegeName || 'N/A';
+            document.getElementById('profile-detail-university').textContent = academic.university || 'N/A';
+            document.getElementById('profile-detail-branch').textContent = academic.branch || 'N/A';
+            document.getElementById('profile-detail-year').textContent = academic.yearOfStudy || 'N/A';
+            document.getElementById('profile-detail-roll').textContent = academic.rollNumber || 'N/A';
+            document.getElementById('profile-detail-cgpa').textContent = academic.cgpa || 'N/A';
+
+            document.getElementById('profile-detail-course').textContent = user.courseSelection || 'None Selected';
+            document.getElementById('profile-detail-internship').textContent = user.internshipSelection || 'None Selected';
+
+            // Render skills badges
+            const skillsDiv = document.getElementById('profile-detail-skills');
+            skillsDiv.innerHTML = '';
+            
+            let skillsList = user.skills || [];
+            if (skillsList.length === 0) {
+                skillsDiv.innerHTML = '<span class="text-muted small">No skills specified</span>';
+            } else {
+                skillsList.forEach(skill => {
+                    const badge = document.createElement('span');
+                    badge.className = 'badge bg-secondary px-3 py-2 fs-7';
+                    badge.textContent = skill;
+                    skillsDiv.appendChild(badge);
+                });
+            }
+        }
+
+        // Fetch Admin Dashboard statistics & activities
+        async function loadAdminDashboardData() {
+            const token = localStorage.getItem('token');
+            try {
+                // Dashboard stats
+                const response = await fetch(apiBase + '/api/dashboard', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                const result = await response.json();
+                if (result.success) {
+                    const stats = result.data;
+                    document.getElementById('stat-total-students').textContent = stats.usersCount || 0;
+                    document.getElementById('stat-total-inquiries').textContent = stats.contactsCount || 0;
+                    document.getElementById('stat-active-services').textContent = stats.servicesCount || 0;
+                }
+
+                // Recent Activities
+                const actResponse = await fetch(apiBase + '/api/dashboard/recent-activities', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                const actResult = await actResponse.json();
+                if (actResult.success) {
+                    const activities = actResult.data.activities || [];
+                    const listContainer = document.getElementById('recent-activities-list');
+                    listContainer.innerHTML = '';
+
+                    if (activities.length === 0) {
+                        listContainer.innerHTML = '<li class="list-group-item bg-transparent text-muted py-3">No recent activities available.</li>';
+                    } else {
+                        activities.forEach(activity => {
+                            const li = document.createElement('li');
+                            li.className = 'list-group-item bg-transparent d-flex justify-content-between align-items-center py-3';
+                            li.innerHTML = `
+                                <div>
+                                    <span class="badge ${activity.type === 'user_signup' ? 'bg-primary' : 'bg-success'} me-2">${activity.type === 'user_signup' ? 'SIGNUP' : 'INQUIRY'}</span>
+                                    <span>${activity.description}</span>
+                                </div>
+                                <small class="text-muted">${new Date(activity.timestamp).toLocaleTimeString()}</small>
+                            `;
+                            listContainer.appendChild(li);
+                        });
+                    }
+                }
+            } catch (err) {
+                console.error('Failed to load admin stats', err);
+            }
+        }
+
+        // Fetch Student Users Registry
+        async function loadStudents() {
+            const token = localStorage.getItem('token');
+            const tbody = document.getElementById('students-table-body');
+            tbody.innerHTML = '<tr><td colspan="8" class="text-center py-4"><span class="spinner-border spinner-border-sm me-2"></span>Loading users registry...</td></tr>';
+            
+            try {
+                const response = await fetch(apiBase + '/api/users', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                const result = await response.json();
+                if (result.success) {
+                    tbody.innerHTML = '';
+                    const users = result.data.users || [];
+                    
+                    if (users.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="8" class="text-center py-4 text-muted">No students registered yet.</td></tr>';
+                        return;
+                    }
+
+                    users.forEach(user => {
+                        const tr = document.createElement('tr');
+                        
+                        const photoUrl = user.profilePhoto ? (apiBase + user.profilePhoto) : 'images/team/placeholder.png';
+                        const academic = user.academicInfo || {};
+
+                        tr.innerHTML = `
+                            <td><img src="${photoUrl}" alt="Photo" class="rounded-circle" width="36" height="36" style="object-fit: cover;"></td>
+                            <td class="fw-bold">${user.name}</td>
+                            <td>${user.username}</td>
+                            <td>${user.email}</td>
+                            <td>${user.phone || 'N/A'}</td>
+                            <td>${academic.branch || 'N/A'}</td>
+                            <td><span class="badge bg-primary">${user.courseSelection || 'None'}</span></td>
+                            <td>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="viewStudentDetails('${user._id}')">
+                                    <i class="fa-solid fa-eye me-1"></i>View Full
+                                </button>
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                }
+            } catch (err) {
+                tbody.innerHTML = '<tr><td colspan="8" class="text-center text-danger py-4">Failed to fetch students.</td></tr>';
+            }
+        }
+
+        // Render Student Modal
+        async function viewStudentDetails(userId) {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch(apiBase + '/api/users/' + userId, {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                const result = await response.json();
+                if (result.success) {
+                    const user = result.data.user;
+                    
+                    document.getElementById('modal-full-name').textContent = user.name;
+                    document.getElementById('modal-username').textContent = user.username;
+                    document.getElementById('modal-email').textContent = user.email;
+                    document.getElementById('modal-phone').textContent = user.phone || 'N/A';
+
+                    const photoUrl = user.profilePhoto ? (apiBase + user.profilePhoto) : 'images/team/placeholder.png';
+                    document.getElementById('modal-profile-photo').src = photoUrl;
+
+                    const academic = user.academicInfo || {};
+                    document.getElementById('modal-college').textContent = academic.collegeName || 'N/A';
+                    document.getElementById('modal-university').textContent = academic.university || 'N/A';
+                    document.getElementById('modal-branch').textContent = academic.branch || 'N/A';
+                    document.getElementById('modal-year').textContent = academic.yearOfStudy || 'N/A';
+                    document.getElementById('modal-roll').textContent = academic.rollNumber || 'N/A';
+                    document.getElementById('modal-cgpa').textContent = academic.cgpa || 'N/A';
+
+                    document.getElementById('modal-course').textContent = user.courseSelection || 'None';
+                    document.getElementById('modal-internship').textContent = user.internshipSelection || 'None';
+
+                    // Skills
+                    const skillsContainer = document.getElementById('modal-skills');
+                    skillsContainer.innerHTML = '';
+                    const skills = user.skills || [];
+                    if (skills.length === 0) {
+                        skillsContainer.innerHTML = '<span class="text-muted small">No skills selected</span>';
+                    } else {
+                        skills.forEach(skill => {
+                            const span = document.createElement('span');
+                            span.className = 'badge bg-secondary px-3 py-2';
+                            span.textContent = skill;
+                            skillsContainer.appendChild(span);
+                        });
+                    }
+
+                    // Docs links
+                    const docs = user.documents || {};
+                    setupDocLink('modal-doc-resume', docs.resume);
+                    setupDocLink('modal-doc-id', docs.idCard);
+                    setupDocLink('modal-doc-cert', docs.certificate);
+
+                    // Show Modal
+                    const modal = new bootstrap.Modal(document.getElementById('studentDetailModal'));
+                    modal.show();
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function setupDocLink(elementId, fileUrl) {
+            const el = document.getElementById(elementId);
+            if (fileUrl) {
+                el.href = apiBase + fileUrl;
+                el.classList.remove('disabled', 'btn-outline-secondary');
+                el.classList.add('btn-outline-info');
+            } else {
+                el.href = '#';
+                el.classList.add('disabled', 'btn-outline-secondary');
+                el.classList.remove('btn-outline-info');
+            }
+        }
+
+        // Fetch Inquiries / Contact Messages
+        async function loadInquiries() {
+            const token = localStorage.getItem('token');
+            const tbody = document.getElementById('inquiries-table-body');
+            tbody.innerHTML = '<tr><td colspan="6" class="text-center py-4"><span class="spinner-border spinner-border-sm me-2"></span>Loading inquiries...</td></tr>';
+            
+            try {
+                const response = await fetch(apiBase + '/api/contacts', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                const result = await response.json();
+                if (result.success) {
+                    tbody.innerHTML = '';
+                    const inquiries = result.data.contacts || [];
+                    
+                    if (inquiries.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="6" class="text-center py-4 text-muted">No inquiries received.</td></tr>';
+                        return;
+                    }
+
+                    inquiries.forEach(inquiry => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td class="fw-bold">${inquiry.name}</td>
+                            <td>${inquiry.email}</td>
+                            <td>${inquiry.subject}</td>
+                            <td><span class="badge ${inquiry.status === 'unread' ? 'bg-danger' : 'bg-success'}">${inquiry.status.toUpperCase()}</span></td>
+                            <td>${inquiry.createdAt ? new Date(inquiry.createdAt).toLocaleDateString() : 'N/A'}</td>
+                            <td>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="viewInquiryMessage('${inquiry.message}', '${inquiry.name}')">
+                                    <i class="fa-solid fa-message me-1"></i>View Message
+                                </button>
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                }
+            } catch (err) {
+                tbody.innerHTML = '<tr><td colspan="6" class="text-center text-danger py-4">Failed to fetch inquiries.</td></tr>';
+            }
+        }
+
+        function viewInquiryMessage(message, senderName) {
+            alert(`Message from ${senderName}:\n\n"${message}"`);
+        }
+
+        // Fetch System Health Status
+        async function loadSystemHealth() {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch(apiBase + '/api/dashboard/system-status', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                const result = await response.json();
+                if (result.success) {
+                    const health = result.data;
+                    document.getElementById('sys-uptime').textContent = Math.round(health.uptime) + 's';
+                    
+                    const memory = health.memoryUsage || {};
+                    const rssMB = Math.round(memory.rss / (1024 * 1024)) || 0;
+                    const totalHeapMB = Math.round(memory.heapTotal / (1024 * 1024)) || 0;
+                    const usedHeapMB = Math.round(memory.heapUsed / (1024 * 1024)) || 0;
+
+                    document.getElementById('mem-rss').textContent = rssMB + ' MB';
+                    document.getElementById('mem-heap-total').textContent = totalHeapMB + ' MB';
+                    document.getElementById('mem-heap-used').textContent = usedHeapMB + ' MB';
+
+                    // Update bars (bounded at max 200MB representation)
+                    document.getElementById('bar-rss').style.width = Math.min((rssMB / 200) * 100, 100) + '%';
+                    document.getElementById('bar-heap-total').style.width = Math.min((totalHeapMB / 200) * 100, 100) + '%';
+                    document.getElementById('bar-heap-used').style.width = Math.min((usedHeapMB / totalHeapMB) * 100, 100) + '%';
+                }
+            } catch (err) {
+                console.error('Failed to fetch health status', err);
+            }
+        }
+
+        // Logout
+        function handleLogout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'register.html';
+        }
+
+        // Generate and download internship application PDF receipt
+        function downloadApplicationPDF() {
+            if (!currentUser) return;
+            
+            // Create temporary div styled as an official document
+            const element = document.createElement('div');
+            element.style.padding = '40px';
+            element.style.fontFamily = 'Arial, sans-serif';
+            element.style.color = '#333';
+            element.style.backgroundColor = '#fff';
+            element.style.lineHeight = '1.6';
+            
+            element.innerHTML = `
+                <div style="text-align: center; border-bottom: 2px solid #0d6efd; padding-bottom: 20px; margin-bottom: 30px;">
+                    <h1 style="color: #0d6efd; margin: 0; font-size: 28px; letter-spacing: 1px;">CODENOVA TECHNOLOGIES</h1>
+                    <p style="margin: 5px 0 0 0; color: #666; font-size: 14px; font-weight: 500;">Innovating Web, Mobile & Cloud Solutions</p>
+                </div>
+                
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #333; border-bottom: 1px solid #eee; padding-bottom: 10px; font-size: 20px;">INTERNSHIP APPLICATION RECEIPT</h2>
+                    <p style="font-size: 14px; color: #555; margin: 5px 0;"><strong>Date of Application:</strong> ${currentUser.createdAt ? new Date(currentUser.createdAt).toLocaleDateString() : new Date().toLocaleDateString()}</p>
+                    <p style="font-size: 14px; color: #555; margin: 5px 0;"><strong>Application ID:</strong> CN-${currentUser._id ? currentUser._id.toUpperCase() : 'MOCK-' + Math.random().toString(36).substring(2, 7).toUpperCase()}</p>
+                </div>
+                
+                <p style="font-size: 15px;">Dear <strong>${currentUser.name}</strong>,</p>
+                
+                <p style="font-size: 15px;">Thank you for applying for an internship at CodeNova Technologies. We are pleased to confirm receipt of your application. Below are the details registered in our database:</p>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 14px;">
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; width: 35%;">Applied Domain</td>
+                        <td style="padding: 12px; border: 1px solid #ddd; color: #0d6efd; font-weight: bold;">${currentUser.internshipSelection || 'Web Development'}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Full Name</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">${currentUser.name}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Email Address</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">${currentUser.email}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Phone Number</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">${currentUser.phone || 'N/A'}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">College Name</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">${currentUser.academicInfo?.collegeName || 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">University</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">${currentUser.academicInfo?.university || 'N/A'}</td>
+                    </tr>
+                    <tr style="background-color: #f8f9fa;">
+                        <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Branch / Dept</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">${currentUser.academicInfo?.branch || 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Roll Number</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">${currentUser.academicInfo?.rollNumber || 'N/A'}</td>
+                    </tr>
+                </table>
+                
+                <p style="font-size: 15px; margin-top: 30px;">Our review board will assess your academic records, skills, and uploaded documents. You will receive further notifications regarding test links and interview schedules on your registered email address.</p>
+                
+                <div style="margin-top: 60px; display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div>
+                        <p style="margin: 0; font-size: 12px; color: #999;">System Verified Receipt</p>
+                        <p style="margin: 0; font-size: 11px; color: #aaa;">Hash: ${Math.random().toString(36).substring(2, 10).toUpperCase()}</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="border-bottom: 1px solid #333; width: 150px; margin: 0 auto 5px auto;"></div>
+                        <p style="margin: 0; font-size: 14px; font-weight: bold; color: #333;">HR Operations</p>
+                        <p style="margin: 0; font-size: 12px; color: #777;">CodeNova Technologies</p>
+                    </div>
+                </div>
+            `;
+            
+            const opt = {
+                margin:       15,
+                filename:     `CN_Receipt_${currentUser.name.replace(/\s+/g, '_')}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Execute PDF download
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+</body>
+
+</html>
